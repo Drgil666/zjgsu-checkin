@@ -1,13 +1,25 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/logs/logs"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#000",
     "navigationBarTitleText": "CheckIn",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "index"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "log"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
