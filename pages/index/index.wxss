@@ -1,4 +1,4 @@
-/**index.wxss**/
+@import "../../weui.wxss";
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -18,4 +18,10 @@
 
 .usermotto {
   margin-top: 200px;
+}
+
+.login {
+  border-width: 4rpx 4rpx 4rpx 4rpx;
+  border-color: blue;
+  border-style: solid;
 }

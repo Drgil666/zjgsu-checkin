@@ -10,7 +10,7 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   //事件处理函数
-  bindViewTap: function() {
+  bindViewTap: function () {
     wx.navigateTo({
       url: '../logs/logs'
     })
@@ -21,7 +21,7 @@ Page({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
-    } else if (this.data.canIUse){
+    } else if (this.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
@@ -43,12 +43,31 @@ Page({
       })
     }
   },
-  getUserInfo: function(e) {
+  getUserInfo: function (e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
+    })
+  },
+  getcheck: function (e) {
+    var id=e.currentTarget.dataset.userid
+    console.log(id)
+    wx.request({
+      url: 'http://localhost:8080/api/user', //这里填写你的接口路径
+      method: 'GET',
+      header: { //这里写你借口返回的数据是什么类型，这里就体现了微信小程序的强大，直接给你解析数据，再也不用去寻找各种方法去解析json，xml等数据了
+        'Content-Type': 'application/json'
+      },
+      data: { //这里写你要请求的参数
+        userId:"1"
+      },
+      success: function (res) {
+        //这里就是请求成功后，进行一些函数操作
+        console.log(res.data)
+        return res
+      }
     })
   }
 })
