@@ -1,8 +1,11 @@
 <!--index.wxml-->
 <view class="container">
   <view class="userinfo" style="text-align:center">
-    <button bindtap="getcheck" id="test1" data-userid="1">111</button>
-    <view wx:if="{{vis}}">{{user.data.mail}}</view>
-    <view wx:else>获取失败!</view>
+    <button bindtap="getcheck" id="test1" data-userid="1">获取用户邮箱</button>
+    <view wx:if="{{uservis==true}}">{{user.data.mail}}</view>
+    <view wx:else>未获取或获取失败!</view>
+    <button bindtap="transformBase" id="test2">获取照片</button>
+    <view wx:if="{{photovis==true}}">{{photostring}}</view>
+    <view wx:else>未获取或获取失败!</view>
   </view>
 </view>

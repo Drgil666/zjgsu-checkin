@@ -35,7 +35,7 @@
     "packNpmRelationList": []
   },
   "compileType": "miniprogram",
-  "libVersion": "2.0.4",
+  "libVersion": "2.5.0",
   "appid": "wx3ed951293baeadc9",
   "projectname": "checkin-fore-end",
   "debugOptions": {
