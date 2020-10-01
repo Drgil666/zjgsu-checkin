@@ -1,0 +1,22 @@
+<form class="weui-cells weui-cells_form" bindsubmit="test1">
+    <view class="weui-form-title">Zjgsu-CheckIn</view>
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label">用户名</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" placeholder="请输入用户名" type="number" name="username"/>
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label">密码</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" placeholder="请输入密码" type="password" name="password"/>
+        </div>
+    </div>
+    <div class="weui-btn-area">
+        <button form-type="submit" class="weui-btn weui-btn_primary" id="login_btn">确定</button>
+    </div>
+</form>

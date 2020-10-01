@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/login/login",
     "pages/index/index",
     "pages/logs/logs"
   ],
@@ -10,14 +11,17 @@
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
-    "list": [
-      {
+    "list": [{
         "pagePath": "pages/index/index",
         "text": "index"
       },
       {
         "pagePath": "pages/logs/logs",
         "text": "log"
+      },
+      {
+        "pagePath": "pages/login/login",
+        "text": "login"
       }
     ]
   },
