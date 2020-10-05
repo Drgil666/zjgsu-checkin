@@ -4,30 +4,25 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'A Demo',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
     user: {},
     uservis: false,
     photostring: '',
     photovis: false,
-  },
-  //事件处理函数
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+    items: [{
+        "id": 1,
+        "name": "test1",
+        "introduction": "test1",
+        "teacher": 3
+      },
+      {
+        "id": 2,
+        "name": "test2",
+        "introduction": "test2",
+        "teacher": 3
+      }
+    ]
   },
   onLoad: function () {},
-  getUserInfo: function (e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-  },
   getcheck: function (e) {
     var that = this
     that.setData({
@@ -78,5 +73,9 @@ Page({
       photovis: true,
       photostring: FSM
     })
+  },
+  getcourse:function(e)
+  {
+      console.log(e.currentTarget.dataset.id)
   }
 })

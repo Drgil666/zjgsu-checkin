@@ -9,3 +9,8 @@
   </view>
 </view> -->
 <view>课程签到</view>
+<view>
+  <block wx:key="item" wx:for="{{items}}">
+    <view bindtap="getcourse" data-id="{{item.id}}">{{item.name}} {{item.introduction}}</view>
+  </block>
+</view>
