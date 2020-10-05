@@ -1,11 +1,11 @@
-<form class="weui-cells weui-cells_form" bindsubmit="test1">
+<form class="weui-cells weui-cells_form" bindsubmit="login">
     <view class="weui-form-title">Zjgsu-CheckIn</view>
     <div class="weui-cell">
         <div class="weui-cell__hd">
             <label class="weui-label">用户名</label>
         </div>
         <div class="weui-cell__bd">
-            <input class="weui-input" placeholder="请输入用户名" type="number" name="username"/>
+            <input class="weui-input" placeholder="请输入用户名" type="number" name="username" value="{{username}}"/>
         </div>
     </div>
     <div class="weui-cell">
@@ -13,10 +13,11 @@
             <label class="weui-label">密码</label>
         </div>
         <div class="weui-cell__bd">
-            <input class="weui-input" placeholder="请输入密码" type="password" name="password"/>
+            <input class="weui-input" placeholder="请输入密码" type="password" name="password" value="{{password}}"/>
         </div>
     </div>
     <div class="weui-btn-area">
         <button form-type="submit" class="weui-btn weui-btn_primary" id="login_btn">确定</button>
     </div>
 </form>
+<loading hidden="{{hidden}}">加载中...</loading>

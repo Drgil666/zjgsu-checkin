@@ -1,5 +1,4 @@
-<!--index.wxml-->
-<view class="container">
+<!-- <view class="container">
   <view class="userinfo" style="text-align:center">
     <button bindtap="getcheck" id="test1" data-userid="1">获取用户邮箱</button>
     <view wx:if="{{uservis==true}}">{{user.data.mail}}</view>
@@ -8,4 +7,5 @@
     <view wx:if="{{photovis==true}}">{{photostring}}</view>
     <view wx:else>未获取或获取失败!</view>
   </view>
-</view>
+</view> -->
+<view>课程签到</view>

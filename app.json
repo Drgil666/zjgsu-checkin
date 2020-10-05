@@ -2,7 +2,7 @@
   "pages": [
     "pages/login/login",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/my/my"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -13,15 +13,11 @@
   "tabBar": {
     "list": [{
         "pagePath": "pages/index/index",
-        "text": "index"
+        "text": "课程签到"
       },
       {
-        "pagePath": "pages/logs/logs",
-        "text": "log"
-      },
-      {
-        "pagePath": "pages/login/login",
-        "text": "login"
+        "pagePath": "pages/my/my",
+        "text": "个人信息"
       }
     ]
   },
