@@ -10,14 +10,14 @@ Page({
     photovis: false,
     items: [{
         "id": 1,
-        "name": "test1",
-        "introduction": "test1",
+        "name": "课程1",
+        "introduction": "介绍1",
         "teacher": 3
       },
       {
         "id": 2,
-        "name": "test2",
-        "introduction": "test2",
+        "name": "课程2",
+        "introduction": "介绍2",
         "teacher": 3
       }
     ]

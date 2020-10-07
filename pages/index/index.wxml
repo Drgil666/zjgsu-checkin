@@ -1,16 +1,18 @@
-<!-- <view class="container">
-  <view class="userinfo" style="text-align:center">
-    <button bindtap="getcheck" id="test1" data-userid="1">获取用户邮箱</button>
-    <view wx:if="{{uservis==true}}">{{user.data.mail}}</view>
-    <view wx:else>未获取或获取失败!</view>
-    <button bindtap="transformBase" id="test2">获取照片</button>
-    <view wx:if="{{photovis==true}}">{{photostring}}</view>
-    <view wx:else>未获取或获取失败!</view>
-  </view>
-</view> -->
-<view>课程签到</view>
-<view>
+<view>课程列表</view>
+<div class="weui-panel weui-panel_access">
+  <div class="weui-panel__hd" style="display:flex;">图文组合列表</div>
   <block wx:key="item" wx:for="{{items}}">
-    <view bindtap="getcourse" data-id="{{item.id}}">{{item.name}} {{item.introduction}}</view>
+    <div class="weui-panel__bd" bindtap="getcourse" data-id="{{item.id}}">
+      <a herf="" class="weui-media-box weui-media-box_appmsg">
+        <!-- <view class="weui-panel__bd" bindtap="getcourse" data-id="{{item.id}}">{{item.name}} {{item.introduction}}</view> -->
+        <div class="weui-media-box__hd">
+          <image class="weui-media-box__thumb" style="width:60px;height:60px" src="../index/test1.png"></image>
+        </div>
+        <div class="weui-media-box__bd">
+          <h4 class="weui-media-box__title">{{item.name}}</h4>
+          <p class="weui-media-box__desc">{{item.introduction}}</p>
+        </div>
+      </a>
+    </div>
   </block>
-</view>
+</div>
