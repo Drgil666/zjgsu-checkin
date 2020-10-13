@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    userinfo:{},
     userid: null,
     username: null,
     stuNo: null,
@@ -12,7 +13,7 @@ Page({
     status: null,
     photoId: null,
     nick: null,
-    avatar: null
+    avatar: "123123"
   },
 
   /**

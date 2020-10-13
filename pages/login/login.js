@@ -42,7 +42,7 @@ Page({
     wx.getUserInfo({
       lang: "zh_CN",
       success: function (res) {
-        console.log(res)
+        console.log(res.data)
       }
     })
   },
