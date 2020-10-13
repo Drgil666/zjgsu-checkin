@@ -94,6 +94,10 @@ Page({
   },
   getcourse:function(e)
   {
-    console.log(e.currentTarget.dataset.id)
+    var courseid=e.currentTarget.dataset.id
+    console.log(courseid)
+    wx.navigateTo({
+      url: '../checkInList/checkInList?courseid='+courseid,
+    })
   }
 })
