@@ -5,22 +5,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userid:null,
-    username:null,
-    stuNo:null,
-    mail:null,
-    status:null,
-    photoId:null,
-    nick:null,
-    avatar:null
+    userid: null,
+    username: null,
+    stuNo: null,
+    mail: null,
+    status: null,
+    photoId: null,
+    nick: null,
+    avatar: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-    var userid=wx.getStorageSync('userid')
-    console.log("userid:"+userid)
+    var userid = wx.getStorageSync('userid')
+    console.log("userid:" + userid)
     wx.request({
       url: 'http://10.21.234.24:8080/api/user', //这里填写你的接口路径
       method: 'GET',
@@ -31,66 +31,14 @@ Page({
         userId: userid
       },
       success: function (res) {
-        if(res.data.code===0)
-        {
+        if (res.data.code === 0) {
           console.log(res.data)
-        }
-        else
-        {
+        } else {
           wx.showToast({
             title: res.data.msg,
           })
         }
       }
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
 })
