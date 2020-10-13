@@ -3,7 +3,7 @@
   <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
     <view class="weui-cell__bd">头像</view>
     <view class="weui-cell__ft weui-cell__ft_in-access">
-     <image class= "head_img" src="{{userinfo.head_img?userinfo.head_img:'/images/default_head_circle.png'}}">
+     <image class= "head_img" src="{{}}">
      </image>
     </view>
   </navigator>
