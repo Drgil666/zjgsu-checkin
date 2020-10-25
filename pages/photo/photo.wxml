@@ -1,3 +1,2 @@
-<camera class="camera" frame-size="large" device-position="front"></camera>
+<camera class="camera" flash="off" frame-size="large" device-position="front"></camera>
 <button class='record' bindtap='record'>拍摄</button>
-<loading hidden="{{hidden}}">登录中...</loading>
