@@ -8,7 +8,7 @@ Page({
         var that=this
         var courseid=parseInt(option.courseid)
         that.setData({
-            courseId:courseid
+            courseid:courseid
         })
         console.log(that.data.courseid)
     }

@@ -20,10 +20,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
+    var url = getApp().globalData.backend
     var userid = wx.getStorageSync('userid')
     console.log("userid:" + userid)
     wx.request({
-      url: 'http://10.21.234.24:8080/api/user', //这里填写你的接口路径
+      url: url+'/api/user', //这里填写你的接口路径
       method: 'GET',
       header: { //这里写你借口返回的数据是什么类型，这里就体现了微信小程序的强大，直接给你解析数据，再也不用去寻找各种方法去解析json，xml等数据了
         'Content-Type': 'application/json'

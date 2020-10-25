@@ -3,6 +3,7 @@
     "pages/login/login",
     "pages/index/index",
     "pages/my/my",
+    "pages/photo/photo",
     "pages/checkInList/checkInList"
   ],
   "window": {
