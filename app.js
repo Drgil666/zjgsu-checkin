@@ -35,6 +35,6 @@ App({
   },
   globalData: {
     userInfo: null,
-    backend:"https://10.21.234.24:8080"
+    backend:"http://localhost:8080"
   }
 })

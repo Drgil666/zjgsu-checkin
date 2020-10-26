@@ -28,10 +28,7 @@ Page({
             userid: res.data.data
           })
           console.log(that.data.userid)
-          wx.setStorage({
-            data: that.data.userid,
-            key: 'userid',
-          })
+          wx.setStorageSync('userid', that.data.userid)
           wx.switchTab({
             url: '../index/index',
           })
