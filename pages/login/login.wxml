@@ -1,3 +1,2 @@
-<button bindtap="getuserinfo" open-type="getUserInfo">获取用户授权信息</button>
-<button bindtap="getopenid">获取openid</button>
+<button bindtap="login" open-type="getUserInfo">登录</button>
 <loading hidden="{{hidden}}">登录中...</loading>

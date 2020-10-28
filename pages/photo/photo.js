@@ -17,5 +17,11 @@ Page({
         })
       },
     })
-  }
+  },
+  onUnload: function () {
+    wx.showToast({
+      title: '更新成功',
+      icon: 'success'
+    })
+  },
 })

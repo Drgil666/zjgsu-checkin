@@ -1,10 +1,12 @@
 {
   "pages": [
     "pages/login/login",
-    "pages/photo/photo",
-    "pages/index/index",
     "pages/my/my",
-    "pages/checkInList/checkInList"
+    "pages/photo/photo",
+    "pages/stu/stu",
+    "pages/mode/mode",
+    "pages/checkInList/checkInList",
+    "pages/teacher/teacher"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -15,7 +17,7 @@
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/stu/stu",
         "text": "课程签到"
       },
       {

@@ -1,5 +1,5 @@
 <div class="weui-panel weui-panel_access">
-  <div class="weui-panel__hd" style="display:flex;">课程列表</div>
+  <div class="weui-panel__hd" style="display:flex;">我参与的签到</div>
   <block wx:key="item" wx:for="{{items}}">
     <div class="weui-panel__bd" bindtap="getcourse" data-id="{{item.id}}">
       <a herf="" class="weui-media-box weui-media-box_appmsg">

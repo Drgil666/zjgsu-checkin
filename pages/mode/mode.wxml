@@ -1,0 +1,6 @@
+<div>
+    <button bindtap="stu">我是学生</button>
+</div>
+<div>
+    <button bindtap="teacher">我是教师</button>
+</div>
