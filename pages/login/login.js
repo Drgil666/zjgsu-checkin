@@ -1,11 +1,12 @@
 Page({
   data: {
-    hidden: true,
   },
   onLoad: function () {
     var that = this
+    wx.showLoading({title: '获取用户数据中...'})
     that.getuserinfo()
     that.getopenid()
+    wx.hideLoading()
   },
   getuserinfo: function () {
     wx.getSetting({
@@ -22,7 +23,6 @@ Page({
     })
   },
   getopenid: function () {
-    var that = this
     wx.login({
       success: function (res) {
         console.log(res)
@@ -44,9 +44,6 @@ Page({
               wx.setStorageSync('openid', openIdRes.data.openid)
             },
             fail: function (error) {
-              that.setData({
-                hidden: true
-              })
               wx.showToast({
                 title: '获取用户openId失败',
                 icon: 'none',
@@ -60,11 +57,8 @@ Page({
     })
   },
   login: function () {
+    wx.showLoading({title: '登录中...'})
     var url = getApp().globalData.backend
-    var that = this
-    that.setData({
-      hidden: false
-    })
     wx.request({
       url: url + '/login', //这里填写你的接口路径
       method: 'POST',
@@ -75,15 +69,10 @@ Page({
         username: wx.getStorageSync('openid')
       },
       success: function (res) {
-        that.setData({
-          hidden: true,
-        })
         if (res.data.code === 0) {
-          that.setData({
-            userid: res.data.data
-          })
-          console.log(that.data.userid)
-          wx.setStorageSync('userid', that.data.userid)
+          console.log(res.data.data)
+          wx.setStorageSync('userid', res.data.data)
+          wx.hideLoading()
           wx.navigateTo({
             url: '../mode/mode',
           })
@@ -94,7 +83,10 @@ Page({
         }
       },
       fail: function () {
-        console.log("请求失败!")
+        wx.hideLoading()
+        wx.showToast({
+          title: '请求失败!',
+        })
       }
     })
   }

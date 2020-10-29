@@ -11,10 +11,10 @@ Page({
     items: []
   },
   onLoad: function () {
-    var url = getApp().globalData.backend
-    var that=this
+    var url = app.globalData.backend
+    var that = this
     wx.request({
-      url: url+'api/course/find2', //这里填写你的接口路径
+      url: url + 'api/course/find2', //这里填写你的接口路径
       method: 'GET',
       header: { //这里写你借口返回的数据是什么类型，这里就体现了微信小程序的强大，直接给你解析数据，再也不用去寻找各种方法去解析json，xml等数据了
         'Content-Type': 'application/json'
@@ -24,19 +24,17 @@ Page({
       },
       success: function (res) {
         //这里就是请求成功后，进行一些函数操作
-         console.log(res.data)
-        if(res.data.code===0)
-        { 
+        console.log(res.data)
+        if (res.data.code === 0) {
           that.setData({
-            items:res.data.data
+            items: res.data.data
           })
         }
-        else
-        {
+        else {
           wx.showToast({
             title: res.data.msg,
-            icon:'none',
-            duration:2000
+            icon: 'none',
+            duration: 2000
           })
         }
       }
@@ -93,12 +91,20 @@ Page({
       photostring: FSM
     })
   },
-  getcourse:function(e)
-  {
-    var courseid=e.currentTarget.dataset.id
+  getcourse: function (e) {
+    var courseid = e.currentTarget.dataset.id
     console.log(courseid)
     wx.navigateTo({
-      url: '../checkInList/checkInList?courseid='+courseid,
+      url: '../checkInList/checkInList?courseid=' + courseid,
     })
+  },
+  onShow: function () {
+    //添加选中效果
+    if (typeof this.getTabBar === 'function' &&
+      this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 0 //这个数是，tabBar从左到右的下标，从0开始
+      })
+    }
   }
 })

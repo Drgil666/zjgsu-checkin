@@ -1,9 +1,10 @@
+
 <div class="weui-panel weui-panel_access">
   <div class="weui-panel__hd" style="display:flex;">我参与的签到</div>
-  <block wx:key="item" wx:for="{{items}}">
+  <!-- <block wx:key="item" wx:for="{{items}}">
     <div class="weui-panel__bd" bindtap="getcourse" data-id="{{item.id}}">
       <a herf="" class="weui-media-box weui-media-box_appmsg">
-        <!-- <view class="weui-panel__bd" bindtap="getcourse" data-id="{{item.id}}">{{item.name}} {{item.introduction}}</view> -->
+        <view class="weui-panel__bd" bindtap="getcourse" data-id="{{item.id}}">{{item.name}} {{item.introduction}}</view>
         <div class="weui-media-box__hd">
           <image class="weui-media-box__thumb" style="width:60px;height:60px" src="../index/test1.png"></image>
         </div>
@@ -13,5 +14,5 @@
         </div>
       </a>
     </div>
-  </block>
+  </block> -->
 </div>

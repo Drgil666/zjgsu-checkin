@@ -9,7 +9,7 @@
     "packNpmManually": false,
     "packNpmRelationList": [],
     "compileType": "miniprogram",
-    "libVersion": "2.5.0",
+    "libVersion": "2.6.2",
     "appid": "wx3ed951293baeadc9",
     "projectname": "checkin-fore-end",
     "debugOptions": {
