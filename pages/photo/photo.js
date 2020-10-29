@@ -10,8 +10,13 @@ Page({
       quality: "high", //高质量的图片
       success: res => {
         let tempImagePath = res.tempImagePath//res.tempImagePath照片文件在手机内的的临时路径
-        console.log(wx.getFileSystemManager().readFileSync(tempImagePath, "base64"))
-        wx.setStorageSync('photo', wx.getFileSystemManager().readFileSync(tempImagePath, "base64"))
+        let photobase64=wx.getFileSystemManager().readFileSync(tempImagePath, "base64")
+        console.log(photobase64)
+        let pages = getCurrentPages();
+        let prevPage = pages[pages.length - 2];//上一页的数据
+        prevPage.setData({
+          photo: photobase64
+        })
         wx.navigateBack({
           delta: 0,
         })

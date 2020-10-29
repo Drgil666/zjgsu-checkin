@@ -6,6 +6,7 @@ Page({
    */
   data: {
     userinfo: null,
+    photo: null
   },
 
   /**
@@ -45,36 +46,29 @@ Page({
       url: '../photo/photo',
     })
   },
-  updateuser:function(e)
-  {
+  updateuser: function (e) {
     var url = getApp().globalData.backend
-    let that=this
-    let value=e.detail.value
-    let type=e.currentTarget.dataset.type
-    let userinfo=that.data.userinfo
-    if(type=="name")
-    {
-      userinfo.nick=value
+    let that = this
+    let value = e.detail.value
+    let type = e.currentTarget.dataset.type
+    let userinfo = that.data.userinfo
+    if (type == "name") {
+      userinfo.nick = value
     }
-    else if(type=="stuNo")
-    {
-      userinfo.stuNo=value
+    else if (type == "stuNo") {
+      userinfo.stuNo = value
     }
-    else if(type=="mail")
-    {
-      userinfo.mail=value
+    else if (type == "mail") {
+      userinfo.mail = value
     }
-    else if(type=="school")
-    {
-      userinfo.school=value
+    else if (type == "school") {
+      userinfo.school = value
     }
-    else if(type=="academy")
-    {
-      userinfo.academy=value
+    else if (type == "academy") {
+      userinfo.academy = value
     }
-    else if(type=="major")
-    {
-      userinfo.major=value
+    else if (type == "major") {
+      userinfo.major = value
     }
     wx.request({
       url: url + '/api/user', //这里填写你的接口路径
@@ -83,18 +77,29 @@ Page({
         'Content-Type': 'application/json'
       },
       data: { //这里写你要请求的参数
-        method:"update",
-        key:[],
-        data:userinfo
+        method: "update",
+        key: [],
+        data: userinfo
       },
-      success:function(res)
-      {
+      success: function (res) {
         console.log(res.data)
         wx.showToast({
           title: '更新成功',
-          icon:'success'
+          icon: 'success'
         })
       }
     })
+  },
+  onShow: function () {
+    let that = this
+    
+    var photo = that.data.photo
+    if (photo !== null) {
+      console.log("photo不为空!")
+      var userinfo = that.data.userinfo
+      that.setData({
+        photo: null
+      })
+    }
   }
 })

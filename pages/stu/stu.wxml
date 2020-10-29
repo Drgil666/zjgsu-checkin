@@ -1,4 +1,3 @@
-
 <div class="weui-panel weui-panel_access">
   <div class="weui-panel__hd" style="display:flex;">我参与的签到</div>
   <!-- <block wx:key="item" wx:for="{{items}}">
