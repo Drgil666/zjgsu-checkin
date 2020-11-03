@@ -11,6 +11,9 @@ Page({
     items: []
   },
   onLoad: function () {
+    let that=this
+    var userId=wx.getStorageSync('userid')
+    console.log(userId)
   },
   getcheck: function () {
   },

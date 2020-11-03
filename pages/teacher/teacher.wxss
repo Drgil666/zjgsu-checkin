@@ -1,0 +1,9 @@
+.add_icon
+{
+    position: fixed;
+    width: 42px;
+    height: 42px;
+    bottom: 60px;
+    right: 20px;
+    
+}

@@ -5,8 +5,9 @@
     "pages/photo/photo",
     "pages/stu/stu",
     "pages/mode/mode",
-    "pages/checkInList/checkInList",
-    "pages/teacher/teacher"
+    "pages/teacher/teacher",
+    "pages/createCheckin/createCheckin",
+    "pages/getCheckin/getCheckin"
   ],
   "window": {
     "backgroundTextStyle": "light",

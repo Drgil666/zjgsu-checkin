@@ -1,0 +1,6 @@
+<div>
+    getCheckin
+</div>
+<div>
+    <view>checkId={{checkId}}</view>
+</div>
