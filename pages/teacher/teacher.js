@@ -37,14 +37,12 @@ Page({
         }
     },
     createcheckin: function () {
-        console.log("createcheckin")
         wx.navigateTo({
             url: '../createCheckin/createCheckin',
         })
     },
     getcheckin: function (e) {
         var id = e.currentTarget.dataset.id
-        console.log("getcheckin")
         console.log(id)
         wx.navigateTo({
           url: '../getCheckin/getCheckin?checkId='+id,
