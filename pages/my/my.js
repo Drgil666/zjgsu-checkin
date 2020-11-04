@@ -92,7 +92,11 @@ Page({
   },
   onShow: function () {
     let that = this
-    
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 0  // 数字是当前页面在tabbar的索引,如我的查询页索引是2，因此这边为2，同理首页就为0，消息中心页面为1
+      })
+    }
     var photo = that.data.photo
     if (photo !== null) {
       console.log("photo不为空!")

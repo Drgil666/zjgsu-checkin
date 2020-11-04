@@ -19,7 +19,8 @@ Page({
                 name: "签退",
                 value: "2"
             }
-        ]
+        ],
+        ischecked: []
     },
     onLoad() {
         let that = this
@@ -116,8 +117,10 @@ Page({
         }
     },
     checkboxChange: function (e) {
-        console.log(e.detail.value)
-
+        let that = this
+        that.setData({
+            ischecked: e.detail.value
+        })
     },
     visibleChange: function () {
         let that = this
@@ -125,22 +128,96 @@ Page({
             visible: !that.data.visible
         })
     },
-    nickChange:function(e)
-    {
-        let that=this
-        var nick=e.detail.value
+    nickChange: function (e) {
+        let that = this
+        var nick = e.detail.value
         console.log(e.detail.value)
         that.setData({
-            nick:nick
+            nick: nick
         })
     },
     createCheckin: function () {
+        wx.showLoading({ title: '登录中...' })
+        var url = getApp().globalData.backend
         let that = this
         console.log("createCheckin")
         console.log(that.data.date, that.data.time)
         console.log(that.data.date1, that.data.time1)
         console.log(that.data.visible)
-        console.log(that.data.checkbox)
+        console.log(that.data.ischecked)
         console.log(that.data.nick)
+        var settime1 = that.data.date + " " + that.data.time
+        var Time1 = Date.parse(settime1.replace(/-/g, '/'))
+        var settime2 = that.data.date1 + " " + that.data.time1
+        var Time2 = Date.parse(settime2.replace(/-/g, '/'))
+        if (that.data.switchChecked === true && Time1 > Time2) {
+            wx.showToast({
+                icon: 'none',
+                title: '结束时间不能早于起始时间!'
+            })
+        }
+        else if (that.data.nick === null) {
+            wx.showToast({
+                icon: 'none',
+                title: '签到名不能为空!'
+            })
+        }
+        else if (that.data.ischecked.length === 0) {
+            wx.showToast({
+                title: '请选择签到类型!',
+            })
+        }
+        else {
+            var count = parseInt(0)
+            for (var index in that.data.ischecked) {
+                count = parseInt(count) + parseInt(that.data.ischecked[index])
+            }
+            var checkin = {}
+            checkin.nick = that.data.nick
+            checkin.startTime = Time1 + ""
+            checkin.endTime = Time2 + ""
+            if (that.data.visible === true) {
+                checkin.visible = 1
+            }
+            else {
+                checkin.visible = 0
+            }
+            checkin.userId = wx.getStorageSync('userid')
+            checkin.status = 0
+            checkin.type = count
+            console.log(checkin)
+            wx.request({
+                url: url + '/api/checkin', //这里填写你的接口路径
+                method: 'POST',
+                header: { //这里写你借口返回的数据是什么类型，这里就体现了微信小程序的强大，直接给你解析数据，再也不用去寻找各种方法去解析json，xml等数据了
+                    'Content-Type': 'application/json'
+                },
+                data: { //这里写你要请求的参数
+                    method: "create",
+                    key: [],
+                    data: checkin
+                },
+                success: function (res) {
+                    wx.hideLoading()
+                    console.log(res.data)
+                    wx.showToast({
+                        title: '创建成功!',
+                        icon: 'success'
+                    })
+                    setTimeout(function () {
+                        wx.navigateBack({
+                            delta: 0,
+                        })
+                    }, 2000) //延迟时间 这里是1秒
+                },
+                fail: function () {
+                    wx.hideLoading()
+                    wx.showToast({
+                        icon: 'none',
+                        title: '创建失败!'
+                    })
+                }
+            })
+        }
     }
 })

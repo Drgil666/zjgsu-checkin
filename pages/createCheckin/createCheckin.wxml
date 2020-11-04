@@ -70,7 +70,7 @@
             </block>
             <div class="weui-cell weui-cell_active">
                 <div class="weui-cell__hd"><label class="weui-label"
-                        style="font-size:20px;font-style:bold;">签到名称</label>
+                        style="font-size:20px;font-style:bold;">签到类型</label>
                 </div>
                 <div class="weui-cells weui-cells_checkbox">
                     <checkbox-group bindchange="checkboxChange">
