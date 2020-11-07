@@ -1,4 +1,5 @@
-
-  {
-    "navigationBarTitleText": "教师界面"
-  }
+{
+  "navigationBarTitleText": "教师界面",
+  "usingComponents": {},
+  "component": true
+}

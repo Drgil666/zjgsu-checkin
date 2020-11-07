@@ -18,13 +18,14 @@ Page({
   getcheck: function () {
   },
   onShow: function () {
+    app.setTabbar1()
     //添加选中效果
-    if (typeof this.getTabBar === 'function' &&
-      this.getTabBar()) {
-      this.getTabBar().setData({
+    let that=this
+    if (typeof that.getTabBar === 'function' &&
+      that.getTabBar()) {
+      that.getTabBar().setData({
         selected: 0 //这个数是，tabBar从左到右的下标，从0开始
       })
     }
-    
   }
 })

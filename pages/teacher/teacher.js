@@ -1,37 +1,42 @@
 const app = getApp()
 Page({
     data: {
-        checkinlist: [
-            {
-                "id": 1,
-                "userId": 1,
-                "startTime": "2020-11-02 18:58:48",
-                "endTime": "2020-11-02 18:58:48",
-                "status": 0,
-                "type": 1,
-                "visible": 1,
-                "nick": "签到1"
-            },
-            {
-                "id": 2,
-                "userId": 1,
-                "startTime": "2020-11-02 18:58:48",
-                "endTime": "2020-11-02 18:58:48",
-                "status": 1,
-                "type": 1,
-                "visible": 1,
-                "nick": "签到2"
-            }
-        ]
+        checkinlist: []
     },
     onLoad: function () {
-
+        let that=this
+        var url = getApp().globalData.backend
+        wx.request({
+            url: url + '/api/checkin/findByUserId', //这里填写你的接口路径
+            method: 'GET',
+            header: { //这里写你借口返回的数据是什么类型，这里就体现了微信小程序的强大，直接给你解析数据，再也不用去寻找各种方法去解析json，xml等数据了
+                'Content-Type': 'application/json'
+            },
+            data: { //这里写你要请求的参数
+                userId:wx.getStorageSync('userid')
+            },
+            success: function (res) {
+                wx.hideLoading()
+                console.log(res.data)
+                that.setData({
+                    checkinlist:res.data.data
+                })
+            },
+            fail: function () {
+                wx.hideLoading()
+                wx.showToast({
+                    icon: 'none',
+                    title: '获取失败!'
+                })
+            }
+        })
     },
     onShow: function () {
+        let that = this
         //添加选中效果
-        if (typeof this.getTabBar === 'function' &&
-            this.getTabBar()) {
-            this.getTabBar().setData({
+        if (typeof that.getTabBar === 'function' &&
+            that.getTabBar()) {
+            that.getTabBar().setData({
                 selected: 0 //这个数是，tabBar从左到右的下标，从0开始
             })
         }

@@ -5,7 +5,6 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
     // 登录
     wx.login({
       success: res => {
@@ -33,9 +32,33 @@ App({
       }
     })
   },
+  setTabbar1: function () {
+    let that = this
+    that.globalData.list = [{
+      "pagePath": "/pages/stu/stu",
+      "text": "我参与的签到"
+    },
+    {
+      "pagePath": "/pages/my/my",
+      "text": "个人信息"
+    },
+    ]
+  },
+  setTabbar2: function () {
+    let that = this
+    that.globalData.list = [{
+      "pagePath": "/pages/teacher/teacher",
+      "text": "我发起的签到"
+    },
+    {
+      "pagePath": "/pages/my/my",
+      "text": "个人信息"
+    },
+    ]
+  },
   globalData: {
     userInfo: null,
     backend: "http://10.21.234.24:8080",
-    list:[]
+    list: []
   }
 })
