@@ -1,4 +1,5 @@
 /* pages/my/my.wxss */
+/*设置头像显示的长宽*/
 .head_img{
   height: 120rpx;
   width: 120rpx;

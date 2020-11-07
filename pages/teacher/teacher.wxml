@@ -3,7 +3,7 @@
     <view style="font-size:20px;">我发起的签到</view>
   </div>
   <div>
-    <image class="add_icon" src="../image/test1.jpg" bindtap="createcheckin"></image>
+    <image class="add_icon" src="../image/add-circle.png" bindtap="createcheckin"></image>
   </div>
   <block wx:key="item" wx:for="{{checkinlist}}">
     <div class="weui-panel__bd" bindtap="getcheckin" data-id="{{item.id}}">

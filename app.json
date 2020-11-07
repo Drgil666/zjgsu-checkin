@@ -7,7 +7,7 @@
     "pages/mode/mode",
     "pages/teacher/teacher",
     "pages/createCheckin/createCheckin",
-    "pages/getCheckin/getCheckin"
+    "pages/checkinInformation/checkinInformation"
   ],
   "window": {
     "backgroundTextStyle": "light",

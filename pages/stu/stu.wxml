@@ -14,4 +14,28 @@
       </a>
     </div>
   </block> -->
+  <!--<div>
+    <image class="add_icon" src="../image/test1.jpg" bindtap="createcheckin"></image>
+  </div>-->
+  <block wx:key="item" wx:for="{{checkinlist}}">
+    <div class="weui-panel__bd" bindtap="getcheckin" data-id="{{item.id}}">
+      <a herf="" class="weui-media-box weui-media-box_appmsg">
+        <view class="weui-panel__bd">{{item.nick}}</view>
+        <div class="weui-media-box__bd">
+          <h4 class="weui-media-box__title">{{item.name}}</h4>
+          <p class="weui-cell__ft">
+            <block wx:if="{{item.status==0}}">
+              <view>未开始</view>
+            </block>
+            <block wx:elif="{{item.status==1}}">
+              <view style="color:red">进行中</view>
+            </block>
+            <block wx:elif="{{item.status==2}}">
+              <view>已结束</view>
+            </block>
+          </p>
+        </div>
+      </a>
+    </div>
+  </block>
 </div>
