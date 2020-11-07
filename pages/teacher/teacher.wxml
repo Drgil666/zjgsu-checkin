@@ -2,9 +2,6 @@
   <div class="weui-panel__hd" style="display:flex;">
     <view style="font-size:20px;">我发起的签到</view>
   </div>
-  <div>
-    <image class="add_icon" src="../image/add-circle.png" bindtap="createcheckin"></image>
-  </div>
   <block wx:key="item" wx:for="{{checkinlist}}">
     <div class="weui-panel__bd" bindtap="getcheckin" data-id="{{item.id}}">
       <a herf="" class="weui-media-box weui-media-box_appmsg">
@@ -26,4 +23,7 @@
       </a>
     </div>
   </block>
+  <div>
+    <image class="add_icon" src="../image/add-circle.png" bindtap="createcheckin"></image>
+  </div>
 </div>

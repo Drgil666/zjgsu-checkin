@@ -59,7 +59,7 @@ Page({
     var id = e.currentTarget.dataset.id
     console.log(id)
     wx.navigateTo({
-      url: '../getCheckin/getCheckin?checkId='+id,
+      url: '../checkinInformation/checkinInformation?checkId='+id,
     })
 },
 })
