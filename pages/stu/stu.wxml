@@ -1,5 +1,7 @@
 <div class="weui-panel weui-panel_access">
-  <div class="weui-panel__hd" style="display:flex;">我参与的签到</div>
+  <div class="weui-panel__hd" style="display:flex;">
+  <view style="font-size:20px;">我发起的签到</view>
+  </div>
   <!-- <block wx:key="item" wx:for="{{items}}">
     <div class="weui-panel__bd" bindtap="getcourse" data-id="{{item.id}}">
       <a herf="" class="weui-media-box weui-media-box_appmsg">
@@ -14,9 +16,6 @@
       </a>
     </div>
   </block> -->
-  <!--<div>
-    <image class="add_icon" src="../image/test1.jpg" bindtap="createcheckin"></image>
-  </div>-->
   <block wx:key="item" wx:for="{{checkinlist}}">
     <div class="weui-panel__bd" bindtap="getcheckin" data-id="{{item.id}}">
       <a herf="" class="weui-media-box weui-media-box_appmsg">
@@ -38,4 +37,10 @@
       </a>
     </div>
   </block>
+  <div>
+    <image class="return_btn" src="../image/return.png" bindtap="return"></image>
+  </div>
+  <div>
+    <image class="myInfo" src="../image/my.png" bindtap="myInfo"></image>
+  </div>
 </div>

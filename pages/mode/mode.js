@@ -2,13 +2,11 @@ const app = getApp()
 Page({
   data: {},
   stu: function () {
-    app.setTabbar1()
-    wx.switchTab({
+    wx.navigateTo({
       url: '../stu/stu',
     })
   },
   teacher: function () {
-    app.setTabbar2()
     wx.switchTab({
       url: '../teacher/teacher',
     })

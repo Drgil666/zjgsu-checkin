@@ -4,15 +4,19 @@ Component({
     selected: 0,
     color: "#7A7E83",
     selectedColor: "#ff6700",
-    list: []
+    list: [
+      {
+        "pagePath": "/pages/teacher/teacher",
+        "text": "我发起的签到"
+      },{
+        "pagePath": "/pages/teacher/teacher",
+        "text": "我发起的签到"
+      }
+    ]
   },
   lifetimes: {
     //组件的生命周期函数
     attached() {
-      var that = this
-      that.setData({
-        list: app.globalData.list
-      })
     },
   },
   methods: {

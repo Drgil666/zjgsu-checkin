@@ -4,7 +4,7 @@ Page({
         checkinlist: []
     },
     onLoad: function () {
-        let that=this
+        let that = this
         var url = getApp().globalData.backend
         wx.request({
             url: url + '/api/checkin/findByUserId', //这里填写你的接口路径
@@ -13,13 +13,13 @@ Page({
                 'Content-Type': 'application/json'
             },
             data: { //这里写你要请求的参数
-                userId:wx.getStorageSync('userid')
+                userId: wx.getStorageSync('userid')
             },
             success: function (res) {
                 wx.hideLoading()
                 console.log(res.data)
                 that.setData({
-                    checkinlist:res.data.data
+                    checkinlist: res.data.data
                 })
             },
             fail: function () {
@@ -30,7 +30,7 @@ Page({
                 })
             }
         })
-    
+
     },
     onShow: function () {
         let that = this
@@ -51,7 +51,18 @@ Page({
         var id = e.currentTarget.dataset.id
         console.log(id)
         wx.navigateTo({
-            url: '../checkinInformation/checkinInformation?checkId='+id,
+            url: '../checkinInformation/checkinInformation?checkId=' + id,
+        })
+    },
+    return: function () {
+        console.log("return")
+        wx.redirectTo({
+            url: '../mode/mode?',
+        })
+    },
+    myInfo: function () {
+        wx.navigateTo({
+            url: '../my/my',
         })
     }
 })

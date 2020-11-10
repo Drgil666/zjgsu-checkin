@@ -32,6 +32,6 @@
   </div>
   <div class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="takephoto">
     <view class="weui-cell__bd">照片</view>
-    <view class="weui-cell__ft weui-cell__ft_in-access">打开相机重新拍摄</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access">打开相机拍摄</view>
   </div>
 </view>
