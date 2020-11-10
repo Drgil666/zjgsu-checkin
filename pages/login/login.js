@@ -69,7 +69,7 @@ Page({
         username: wx.getStorageSync('openid')
       },
       success: function (res) {
-        if (res.data.code === 0) {
+        if (res.data.code === 200) {
           console.log(res.data.data)
           wx.setStorageSync('userid', res.data.data)
           wx.hideLoading()

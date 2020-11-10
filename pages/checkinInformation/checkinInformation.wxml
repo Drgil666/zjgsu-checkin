@@ -1,2 +1,13 @@
 <!--pages/checkinInformation/checkinInformation.wxml-->
-<text>pages/checkinInformation/checkinInformation.wxml</text>
+<div url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__bd">签到名称：</view>
+    <!--<input class="weui-cell__ft weui-cell__ft_in-access" value="{{userinfo.nick}}" bindblur="updateuser" data-type="name"></input>-->
+  </div>
+  <div class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__bd">签到发起人：</view>
+    <!--<input class="weui-cell__ft weui-cell__ft_in-access" value="{{userinfo.stuNo}}" bindblur="updateuser" data-type="stuNo"></input>-->
+  </div>
+  <div class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__bd">签到时间:</view>
+    <!--<input class="weui-cell__ft weui-cell__ft_in-access" value="{{userinfo.stuNo}}" bindblur="updateuser" data-type="stuNo"></input>-->
+  </div>

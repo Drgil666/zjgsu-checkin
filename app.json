@@ -16,7 +16,6 @@
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
-    "custom": true,
     "list": [
       {
         "pagePath": "pages/teacher/teacher",

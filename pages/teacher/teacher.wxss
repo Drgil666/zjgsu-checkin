@@ -1,3 +1,11 @@
+.list
+{
+  top:800px;
+  left:0px;
+  right:0px;
+  bottom: 48px;
+  background-color: blue;
+}
 .add_icon
 {
     position: fixed;
@@ -18,8 +26,8 @@
 {
   position: fixed;
   display:flex;
-  width: 42px;
-  height: 42px;
+  width: 35px;
+  height: 35px;
   top: 10px;
   left: 10px;
 }
@@ -27,8 +35,8 @@
 {
   position: fixed;
   display:flex;
-  width: 42px;
-  height: 42px;
+  width: 35px;
+  height: 35px;
   top: 10px;
   right: 10px;
 }
