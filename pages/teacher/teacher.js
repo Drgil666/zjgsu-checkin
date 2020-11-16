@@ -53,7 +53,7 @@ Page({
     },
     createcheckin: function () {
         wx.navigateTo({
-            url: '../createCheckin/createCheckin',
+            url: '../createCheckSet/createCheckSet',
         })
     },
     getcheckin: function (e) {
