@@ -6,8 +6,8 @@
     "pages/stu/stu",
     "pages/mode/mode",
     "pages/teacher/teacher",
-    "pages/createCheckin/createCheckin",
-    "pages/checkinInformation/checkinInformation"
+    "pages/createCheckSet/createCheckSet",
+    "pages/getCheckSet/getCheckSet"
   ],
   "window": {
     "backgroundTextStyle": "light",

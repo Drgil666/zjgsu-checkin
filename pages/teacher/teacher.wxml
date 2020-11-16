@@ -2,22 +2,13 @@
   <div class="weui-panel__hd" style="display:flex;">
     <view style="font-size:20px;">我发起的签到</view>
   </div>
-  <block wx:key="item" wx:for="{{checkinlist}}">
+  <block wx:key="item" wx:for="{{checkSetlist}}">
     <div class="weui-panel__bd" bindtap="getcheckin" data-id="{{item.id}}">
       <a herf="" class="weui-media-box weui-media-box_appmsg">
         <view class="weui-panel__bd">{{item.nick}}</view>
         <div class="weui-media-box__bd">
           <h4 class="weui-media-box__title">{{item.name}}</h4>
           <p class="weui-cell__ft">
-            <block wx:if="{{item.status==0}}">
-              <view>未开始</view>
-            </block>
-            <block wx:elif="{{item.status==1}}">
-              <view style="color:red">进行中</view>
-            </block>
-            <block wx:elif="{{item.status==2}}">
-              <view>已结束</view>
-            </block>
           </p>
         </div>
       </a>

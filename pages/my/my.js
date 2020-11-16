@@ -91,14 +91,5 @@ Page({
     })
   },
   onShow: function () {
-    let that = this
-    var photo = that.data.photo
-    if (photo !== null) {
-      console.log("photo不为空!")
-      var userinfo = that.data.userinfo
-      that.setData({
-        photo: null
-      })
-    }
   }
 })

@@ -1,0 +1,31 @@
+<!--pages/checkinInformation/checkinInformation.wxml-->
+<div url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+  <label class="weui-label" style="font-size:20px;font-style:bold;">签到名称:</label>
+  <input class="weui-cell__hd" style="font-size:20px;font-style:bold;" value="{{nick}}" data-type="nick"
+    bindblur="updateCheckSet"></input>
+</div>
+<div class="weui-cell weui-cell_active">
+  <label class="weui-label" style="font-size:20px;font-style:bold;">可见性:</label>
+  <switch bindchange="visibleChange" checked="{{visible}}" />
+</div>
+<div class="weui-cells__title" style="font-size:15px;font-style:bold;">签到环节</div>
+<div class="weui-cell weui-cell_active" wx:for="{{checkInList}}" wx:key="item" data-id="{{item.id}}" bindtap="getCheckIn">
+  <div class="weui-cell__bd">
+    <view wx:if="{{item.status===0}}">
+      未开始
+    </view>
+    <view wx:elif="{{item.status===1}}" style="color:red;font-style:bold;">
+      进行中
+    </view>
+    <view wx:elif="{{item.status===2}}" style="color:grey;font-style:bold;">
+      已结束
+    </view>
+  </div>
+  <div class="weui-cell__ft" style="color:black;">
+    <view wx:if="{{item.type>=1}}">签到</view>
+    <view wx:if="{{item.type>=2}}">签退</view>
+  </div>
+</div>
+<div>
+  <button class="weui-btn weui-btn_primary" bindtap="createCheckIn">新增签到环节</button>
+</div>
