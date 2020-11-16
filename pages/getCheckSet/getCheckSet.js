@@ -1,6 +1,7 @@
 Page({
     data: {
         checkSetId: 1,
+        role: null,
         userId: wx.getStorageSync('userid'),
         visible: 1,
         nick: "Web前端技术开发",
@@ -32,20 +33,23 @@ Page({
         for (let index = 0; index <= 60; index++) {
             timeList[index] = index;
         }
-        console.log(timeList);
         let that = this
         that.setData({
             timeList: timeList
         })
     },
-    onLoad: function () {
+    onLoad: function (e) {
         let that = this
         that.timeListSet()
+        that.setData({
+            role: e.role + "",
+            checkSetId: e.checkSetId
+        })
     },
     visibleChange: function () {
         let that = this
         that.setData({
-            visible: that.data.visible
+            visible: !that.data.visible
         })
     },
     updateCheckSet: function (e) {
@@ -56,15 +60,15 @@ Page({
             nick: e.detail.value
         })
     },
-    getCheckIn:function(e)
-    {
-        console.log(e.currentTarget.dataset.id)
+    getCheckIn: function (e) {
+        let id = e.currentTarget.dataset.id
         wx.navigateTo({
-          url: '../getCheckIn/getCheckIn?id'
+            url: '../getCheckIn/getCheckIn?checkInId=' + id
         })
     },
-    createCheckIn:function()
-    {
-        console.log("checkSetSubmit")
+    createCheckIn: function () {
+        wx.navigateTo({
+          url: '../createCheckIn/createCheckIn',
+        })
     }
 })

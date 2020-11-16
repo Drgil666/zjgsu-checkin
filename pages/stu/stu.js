@@ -64,7 +64,7 @@ Page({
     var id = e.currentTarget.dataset.id
     console.log(id)
     wx.navigateTo({
-      url: '../getCheckSet/getCheckSet?checkId=' + id,
+      url: '../getCheckSet/getCheckSet?role=stu&checkSetId=' + id,
     })
   },
   return: function (e) {

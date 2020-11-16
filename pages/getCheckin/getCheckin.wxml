@@ -1,0 +1,4 @@
+<div class="weui-cell weui-cell_access">
+    <label class="weui-label" style="font-size:20px;font-style:bold;">签到环节:</label>
+    <input class="weui-cell__hd" style="font-size:20px;font-style:bold;" value="{{checkInId}}" data-type="nick"></input>
+</div>

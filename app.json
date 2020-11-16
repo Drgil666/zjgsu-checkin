@@ -7,7 +7,9 @@
     "pages/mode/mode",
     "pages/teacher/teacher",
     "pages/createCheckSet/createCheckSet",
-    "pages/getCheckSet/getCheckSet"
+    "pages/getCheckSet/getCheckSet",
+    "pages/getCheckIn/getCheckIn",
+    "pages/createCheckIn/createCheckIn"
   ],
   "window": {
     "backgroundTextStyle": "light",
