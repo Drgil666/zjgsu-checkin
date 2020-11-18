@@ -61,10 +61,16 @@ Page({
     },
     createQrCode: function () {
         let that = this
-        let url = app.globalData.backend
         that.setData({
             buttonVisible: !that.data.buttonVisible
         })
+        setInterval(function () {
+             that.getQrCode() 
+        }, 2000)
+    },
+    getQrCode: function () {
+        let that = this
+        let url = app.globalData.backend
         wx.request({
             url: url + '/api/QrCode', //这里填写你的接口路径
             method: 'POST',
@@ -82,7 +88,6 @@ Page({
                     that.setData({
                         qrCode: res.data.data
                     })
-                    that.getBase64ImageUrl()
                 } else {
                     wx.showToast({
                         title: res.data.msg
@@ -96,18 +101,5 @@ Page({
                 })
             }
         })
-
-    },
-    //把base64转换成图片
-    getBase64ImageUrl: function () {
-        let that = this
-        let data = "iVBORw0KGgoAAAANSUhEUgAAAMgAAADIAQAAAACFI5MzAAABu0lEQVR42u2YQYrDMAxFVbLwMkfITZKLFWrwxdKb+AhdehGi+V+mIR2Y5fwOQ7MItl8XQvr6Vmr+02Mf8tdJNrPRa/KHTX73UrEfpKS47yBtxt4u7tXjTEmqzWOpzcY8NbMbV+8gbotv5mv/zRvIZu3yuE543d5Aen3Sbtce2/fK/ToJjSIn8/P1ql4BiWeztNpQfbXbtw6WEJuxh0IKU4Sw1lFL8pTu6E4LcbBZoRAtcUdEZm3pGh0qo5SSEGU2uCXCWrCiTNQkdNG7BFFSK1ICq2ZO2gU5gVZwbexq4omxtX5xcXs/ukRDCuWJxFAmzqsT9VGTvuQh4NXkBDbFZoVlZgbIPFEwQhKxZRZqm+hV9VCIjnBwYp/2W/OsEA1xp0fCLuAUifNbSFZJClsURYJGkZ0xv2hHRHBJ4drgTQXThkxPfq0hyAn6NFGt0azhWkoSvYEBennaBYxjkJJ4KFTOUTw8+lRFYn7LrArrQ8EsDy3pM6yzKtRKOXmVinCOz1OMkf2ZzxO+itAyGdE6wjLXc2wq4v3qbAwt5igpYX02HnKOx8oOrxKR/l3P2QVj5N6/KLXk8y/OPyNffMLU6FPXmbUAAAAASUVORK5CYII="
-        var base64Data = data;
-        base64Data = wx.arrayBufferToBase64(wx.base64ToArrayBuffer(base64Data));
-        const base64ImgUrl = "data:image/png;base64," + base64Data;
-        that.setData({
-            qrCode: base64ImgUrl
-        })
-        // console.log(base64ImgUrl)
-    },
+    }
 })
