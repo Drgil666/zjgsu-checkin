@@ -1,22 +1,22 @@
 <div class="weui-cell weui-cell_access">
-    <label class="weui-label" style="font-size:20px;font-style:bold;">签到环节:</label>
-    <div class="weui-cell__hd" style="font-size:20px;font-style:bold;">
-        <view wx:if="{{checkIn.type%2==1}}">签到 </view>
-        <view wx:if="{{(checkIn.type>>1)%2==1}}">签退 </view>
-    </div>
+  <label class="weui-label" style="font-size:20px;font-style:bold;">签到环节:</label>
+  <div class="weui-cell__hd" style="font-size:20px;font-style:bold;">
+    <view wx:if="{{checkIn.type%2==1}}">签到 </view>
+    <view wx:if="{{(checkIn.type>>1)%2==1}}">签退 </view>
+  </div>
 </div>
 <div class="weui-cell weui-cell_active" style="font-size:20px;font-style:bold;">
-    <label class="weui-label" >状态:</label>
-    <view wx:if="{{checkIn.status==0}}">未开始</view>
-    <view wx:elif="{{checkIn.status==1}}">进行中</view>
-    <view wx:elif="{{checkIn.status==2}}">已结束</view>
+  <label class="weui-label">状态:</label>
+  <view wx:if="{{checkIn.status==0}}">未开始</view>
+  <view wx:elif="{{checkIn.status==1}}">进行中</view>
+  <view wx:elif="{{checkIn.status==2}}">已结束</view>
 </div>
 <div class="weui-cell weui-cell_active">
   <label class="weui-label" style="font-size:20px;font-style:bold;">可见性:</label>
   <switch bindchange="visibleChange" checked="{{checkIn.visible}}" />
 </div>
 <div wx:if="{{role=='teacher'}}">
-    <div>
+  <div wx:if="{{buttonVisible==true}}">
     <button class="weui-btn weui-btn_primary" bindtap="createQrCode">生成二维码</button>
   </div>
 </div>

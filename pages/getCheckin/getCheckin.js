@@ -4,6 +4,7 @@ Page({
         checkInId: 2,
         role: null,
         checkIn: {},
+        buttonVisible: true
     },
     onLoad: function (e) {
         let that = this
@@ -41,7 +42,7 @@ Page({
                 if (res.data.code === 200) {
                     console.log(res.data.data)
                     that.setData({
-                        checkIn:res.data.data
+                        checkIn: res.data.data
                     })
                 } else {
                     wx.showToast({
@@ -57,8 +58,42 @@ Page({
             }
         })
     },
-    createQrCode:function()
-    {
-        
+    createQrCode: function () {
+        let that = this
+        let url = app.globalData.backend
+        that.setData({
+            buttonVisible: !that.data.buttonVisible
+        })
+        wx.request({
+            url: url + '/api/QrCode', //这里填写你的接口路径
+            method: 'POST',
+            header: { //这里写你借口返回的数据是什么类型，这里就体现了微信小程序的强大，直接给你解析数据，再也不用去寻找各种方法去解析json，xml等数据了
+                'Content-Type': 'application/json'
+            },
+            data: { //这里写你要请求的参数
+                test1: "111",
+                test2: "222"
+            },
+            success: function (res) {
+                wx.hideLoading()
+                if (res.data.code === 200) {
+                    console.log(res.data.data)
+                    that.setData({
+                        checkIn: res.data.data
+                    })
+                } else {
+                    wx.showToast({
+                        title: res.data.msg
+                    })
+                }
+            },
+            fail: function () {
+                wx.hideLoading()
+                wx.showToast({
+                    title: '请求失败!',
+                })
+            }
+        })
+
     }
 })
