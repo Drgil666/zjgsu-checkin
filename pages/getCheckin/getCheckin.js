@@ -5,7 +5,9 @@ Page({
         role: null,
         checkIn: {},
         buttonVisible: true,
-        qrCode: null
+        qrCode: null,
+        interval: null,
+        isSign: false,
     },
     onLoad: function (e) {
         let that = this
@@ -64,9 +66,10 @@ Page({
         that.setData({
             buttonVisible: !that.data.buttonVisible
         })
-        setInterval(function () {
-             that.getQrCode() 
-        }, 2000)
+        that.getQrCode()
+        that.interval = setInterval(function () {
+            that.getQrCode()
+        }, 10000)
     },
     getQrCode: function () {
         let that = this
@@ -78,8 +81,8 @@ Page({
                 'Content-Type': 'application/json'
             },
             data: { //这里写你要请求的参数
-                test1: "111",
-                test2: "222"
+                checkIn: that.data.checkIn,
+                date: new Date()
             },
             success: function (res) {
                 wx.hideLoading()
@@ -101,5 +104,9 @@ Page({
                 })
             }
         })
+    },
+    onUnload: function () {
+        let that = this
+        clearInterval(that.interval)
     }
 })

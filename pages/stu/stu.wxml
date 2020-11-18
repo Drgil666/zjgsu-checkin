@@ -1,6 +1,6 @@
 <div class="weui-panel weui-panel_access">
   <div class="weui-panel__hd" style="display:flex;">
-  <view style="font-size:20px;">我参与的签到</view>
+    <view style="font-size:20px;">我参与的签到</view>
   </div>
   <!-- <block wx:key="item" wx:for="{{items}}">
     <div class="weui-panel__bd" bindtap="getcourse" data-id="{{item.id}}">
@@ -37,6 +37,9 @@
       </a>
     </div>
   </block>
+  <div>
+    <image class="add_icon" src="../image/add-circle.png" bindtap="signIn"></image>
+  </div>
   <div>
     <image class="return_btn" src="../image/return.png" bindtap="return"></image>
   </div>

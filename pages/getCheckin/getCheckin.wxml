@@ -15,11 +15,24 @@
   <label class="weui-label" style="font-size:20px;font-style:bold;">可见性:</label>
   <switch bindchange="visibleChange" checked="{{checkIn.visible}}" />
 </div>
-<div wx:if="{{role=='teacher'}}">
-  <div wx:if="{{buttonVisible==true}}">
+<block wx:if="{{role=='teacher'}}">
+  <block wx:if="{{buttonVisible==true}}">
     <button class="weui-btn weui-btn_primary" bindtap="createQrCode">生成二维码</button>
-  </div>
-</div>
-<div wx:if="{{buttonVisible==false}}">
-  <image src="{{qrCode}}" mode="aspectFit"></image>
-</div>
+  </block>
+  <block wx:else>
+    <div wx:if="{{buttonVisible==false}}">
+      <div class="qrcode">
+        <image src="{{qrCode}}" mode="aspectFit" bindtap="getQrCode" />
+      </div>
+      <div style="text-align:center;font-style:bold;font-size:15px;">
+        <view>点击二维码可以手动刷新</view>
+      </div>
+    </div>
+  </block>
+</block>
+<block wx:elif="{{isSign==false}}">
+  <button class="weui-btn weui-btn_primary">参与签到</button>
+</block>
+<block wx:elif="{{isSign==true}}">
+
+</block>

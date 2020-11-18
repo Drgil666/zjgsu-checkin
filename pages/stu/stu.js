@@ -70,5 +70,35 @@ Page({
       }
     })
 
+  },
+  signIn: function () {
+    wx.scanCode({
+      success(res) {
+        console.log(res)
+        try {
+          console.log(JSON.parse(res.result))
+          wx.showToast({
+            title: '成功',
+            icon: 'success',
+            duration: 2000
+          })
+        }
+        catch (err) {
+          wx.showToast({
+            icon: 'none',
+            title: '二维码解析错误!',
+          })
+          console.log(err)
+        }
+      },
+      fail: (res) => {
+        console.log(res);
+        wx.showToast({
+          title: '失败',
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    })
   }
 })

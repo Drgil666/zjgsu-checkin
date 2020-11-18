@@ -49,3 +49,12 @@
   top: 10px;
   right: 10px;
 }
+.add_icon
+{
+    position: fixed;
+    display:flex;
+    width: 42px;
+    height: 42px;
+    bottom: 450px;
+    right: 10px;
+}
