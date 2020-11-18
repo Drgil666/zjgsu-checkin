@@ -20,3 +20,6 @@
     <button class="weui-btn weui-btn_primary" bindtap="createQrCode">生成二维码</button>
   </div>
 </div>
+<div wx:if="{{buttonVisible==false}}">
+  <image src="{{qrCode}}" mode="aspectFit"></image>
+</div>
