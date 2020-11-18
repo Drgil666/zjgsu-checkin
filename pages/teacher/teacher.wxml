@@ -3,7 +3,7 @@
     <view style="font-size:20px;">我发起的签到</view>
   </div>
   <block wx:key="item" wx:for="{{checkSetlist}}">
-    <div class="weui-panel__bd" bindtap="getcheckin" data-id="{{item.id}}">
+    <div class="weui-panel__bd" bindtap="getCheckSet" data-id="{{item.id}}">
       <a herf="" class="weui-media-box weui-media-box_appmsg">
         <view class="weui-panel__bd">{{item.nick}}</view>
         <div class="weui-media-box__bd">

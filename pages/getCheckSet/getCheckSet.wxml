@@ -23,8 +23,8 @@
     </view>
   </div>
   <div class="weui-cell__ft" style="color:black;">
-    <view wx:if="{{item.type>=1}}">签到</view>
-    <view wx:if="{{item.type>=2}}">签退</view>
+    <view wx:if="{{item.type%2==1}}">签到</view>
+    <view wx:if="{{(item.type>>1)%2==1}}">签退</view>
   </div>
 </div>
 <block wx:if="{{role==='teacher'}}">
