@@ -34,6 +34,8 @@ App({
   },
   globalData: {
     userInfo: null,
-    backend: "http://10.21.234.24:8080"
+    backend: "http://10.21.234.24:8080",
+    apiKey:"a2W3xpdwboiZZHN2NKIPqZXy",
+    secretKey:"tuGXFGmzfgcnG9CejHIe9wa1DzcLimiE"
   }
 })

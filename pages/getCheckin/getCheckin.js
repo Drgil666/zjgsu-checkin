@@ -11,6 +11,7 @@ Page({
     },
     onLoad: function (e) {
         let that = this
+        that.getAccessToken()
         console.log(e.checkInId)
         console.log(e.role)
         that.setData({
@@ -75,13 +76,15 @@ Page({
         let that = this
         let url = app.globalData.backend
         wx.request({
-            url: url + '/api/QrCode', //这里填写你的接口路径
+            url: url + '/api/QrCode',
             method: 'POST',
-            header: { //这里写你借口返回的数据是什么类型，这里就体现了微信小程序的强大，直接给你解析数据，再也不用去寻找各种方法去解析json，xml等数据了
+            header: {
                 'Content-Type': 'application/json'
             },
-            data: { //这里写你要请求的参数
-                checkIn: that.data.checkIn,
+            data: {
+                checkInId: that.data.checkIn.id,
+                userId: wx.getStorageSync('userid'),
+                role: "stu",
                 date: new Date()
             },
             success: function (res) {
@@ -108,5 +111,10 @@ Page({
     onUnload: function () {
         let that = this
         clearInterval(that.interval)
-    }
+    },
+    signIn: function () {
+        wx.navigateTo({
+            url: '../photo/photo?type=1',
+        })
+    },
 })

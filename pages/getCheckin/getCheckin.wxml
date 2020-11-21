@@ -32,7 +32,7 @@
   </block>
 </block>
 <block wx:elif="{{isSign==false}}">
-  <button class="weui-btn weui-btn_primary">参与签到</button>
+  <button class="weui-btn weui-btn_primary" bindtap="signIn">参与签到</button>
 </block>
 <block wx:elif="{{isSign==true}}">
 </block>
