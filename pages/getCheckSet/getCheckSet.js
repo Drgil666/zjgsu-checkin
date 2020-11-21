@@ -45,8 +45,9 @@ Page({
         })
     },
     createCheckIn: function () {
+        let that=this
         wx.navigateTo({
-            url: '../createCheckIn/createCheckIn',
+            url: '../createCheckIn/createCheckIn?checkSetId='+that.data.checkSetId,
         })
     },
     getCheckSet: function () {

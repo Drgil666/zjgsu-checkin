@@ -8,10 +8,32 @@
                 <div class="weui-cell__hd">
                     <label class="weui-label" style="font-size:20px;font-style:bold;">签到环节类型</label>
                 </div>
+                <div>
+                    <checkbox-group bindchange="checkboxChange">
+                        <label class="weui-cell weui-check__label" wx:for="{{checkBox}}" wx:key="item">
+                            <view class="weui-cell__hd">
+                                <checkbox value="{{item.value}}" />
+                            </view>
+                            <view class="weui-cell__bd">{{item.name}}</view>
+                        </label>
+                    </checkbox-group>
+                </div>
             </div>
             <div class="weui-cell weui-cell_active">
                 <label class="weui-label" style="font-size:20px;font-style:bold;">可见性</label>
                 <switch bindchange="visibleChange" checked="{{visible}}" />
+            </div>
+            <div class="weui-cell weui-cell_active">
+                <div class="weui-cell__hd">
+                    <label class="weui-label" style="font-size:20px;font-style:bold;">持续时间</label>
+                </div>
+                <div>
+                    <picker bindchange="pickChange" value="{{timeIndex}}" range="{{timeList}}">
+                        <view>
+                            {{timeList[timeIndex]}} 分钟
+                        </view>
+                    </picker>
+                </div>
             </div>
         </div>
         <div>
