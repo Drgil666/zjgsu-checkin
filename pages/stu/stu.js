@@ -24,11 +24,11 @@ Page({
       url: '../getCheckSet/getCheckSet?role=stu&checkSetId=' + id,
     })
   },
-  return: function (e) {
+  /*return: function (e) {
     wx.redirectTo({
       url: '../mode/mode',
     })
-  },
+  },*/
   myInfo: function () {
     wx.navigateTo({
       url: '../my/my',
