@@ -26,7 +26,8 @@ Page({
         that.setData({
           photobase64: photobase64
         })
-        console.log(that.humanCheck(photobase64))
+        wx.showLoading({title: '活体识别中...'}),
+        that.humanCheck(photobase64)
         wx.navigateBack({
           delta: 0,
         })
@@ -58,9 +59,6 @@ Page({
   },
   humanCheck: function (photobase64) {
     let that = this
-    wx.showLoading({
-      title: '活体识别中...',
-    }),
       wx.request({
         url: 'https://aip.baidubce.com/rest/2.0/face/v3/faceverify?access_token=' + that.data.accessToken,
         method: 'post',
@@ -68,7 +66,7 @@ Page({
           {
             image: photobase64,
             image_type: "BASE64",
-            "face_field": "age,beauty,spoofing",
+            "face_field": "age,beauty,spoofing,quality",
             "option": "COMMON"
           }
         ],
@@ -77,12 +75,11 @@ Page({
           console.log(res.data)
           if (res.data.error_msg === "SUCCESS") {
             console.log(res.data.result.face_liveness)
-            if (res.data.result.face_liveness >= 0.95) {
+            if (res.data.result.face_liveness >= 0.96) {
               wx.showToast({
-                icon:'success',
+                icon: 'success',
                 title: '活体识别成功!',
               })
-              return true;
             }
           }
           else {
@@ -90,7 +87,6 @@ Page({
               icon: 'none',
               title: '未识别到人脸!请重新拍摄!',
             })
-            return false;
           }
         },
         fail: function () {
@@ -98,7 +94,6 @@ Page({
           wx.showToast({
             title: '请求失败,请重试!',
           })
-          return false;
         }
       })
   }
