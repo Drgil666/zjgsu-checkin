@@ -11,7 +11,6 @@ Page({
     },
     onLoad: function (e) {
         let that = this
-        that.getAccessToken()
         console.log(e.checkInId)
         console.log(e.role)
         that.setData({

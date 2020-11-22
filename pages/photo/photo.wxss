@@ -1,6 +1,6 @@
 .camera{
   display:flex;
-  height: 300px;                       
+  height: 600px;                       
   justify-content: center;
   align-items:center;
   width: 100%;

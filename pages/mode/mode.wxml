@@ -1,6 +1,12 @@
-<div>
+<!--<div>
     <button bindtap="stu">我是学生</button>
 </div>
 <div>
     <button bindtap="teacher">我是教师</button>
-</div>
+</div>-->
+<div>
+    <image class="stu" src="../image/stu.png" bindtap="stu"></image>
+  </div>
+  <div>
+    <image class="tea" src="../image/tea.png" bindtap="teacher"></image>
+  </div>
