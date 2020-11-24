@@ -1,14 +1,20 @@
+const app = getApp()
 Page({
+
   data: {
+    userInfo: null,
   },
   onLoad: function () {
+  },
+  onShow: function () {
     var that = this
-    wx.showLoading({title: '获取用户数据中...'})
+    wx.showLoading({ title: '获取用户数据中...' })
     that.getuserinfo()
     that.getopenid()
     wx.hideLoading()
   },
   getuserinfo: function () {
+    let that = this
     wx.getSetting({
       success(res) {
         if (res.authSetting['scope.userInfo']) {
@@ -16,6 +22,10 @@ Page({
           wx.getUserInfo({
             success: function (res) {
               console.log(res.userInfo)
+              that.setData({
+
+                userInfo: res.userInfo
+              })
             },
           })
         }
@@ -57,7 +67,7 @@ Page({
     })
   },
   login: function () {
-    wx.showLoading({title: '登录中...'})
+    wx.showLoading({ title: '登录中...' })
     var url = getApp().globalData.backend
     wx.request({
       url: url + '/login', //这里填写你的接口路径

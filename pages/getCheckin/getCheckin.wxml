@@ -11,16 +11,16 @@
   <view wx:elif="{{checkIn.status==1}}">进行中</view>
   <view wx:elif="{{checkIn.status==2}}">已结束</view>
 </div>
-<div class="weui-cell weui-cell_active">
+<div wx:if="{{role==='teacher'}}" class="weui-cell weui-cell_active">
   <label class="weui-label" style="font-size:20px;font-style:bold;">可见性:</label>
   <switch bindchange="visibleChange" checked="{{checkIn.visible}}" />
 </div>
-<block wx:if="{{role=='teacher'}}">
+<block wx:if="{{role==='teacher'}}">
   <block wx:if="{{buttonVisible==true}}">
     <button class="weui-btn weui-btn_primary" bindtap="createQrCode">生成二维码</button>
   </block>
   <block wx:else>
-    <div wx:if="{{buttonVisible==false}}">
+    <div wx:if="{{buttonVisible===false}}">
       <div class="qrcode">
         <image src="{{qrCode}}" mode="aspectFit" bindtap="getQrCode" />
       </div>
@@ -31,8 +31,8 @@
     <button class="weui-btn weui-btn_primary" bindtap="">结束签到</button>
   </block>
 </block>
-<block wx:elif="{{isSign==false}}">
+<block wx:elif="{{isSign===false}}">
   <button class="weui-btn weui-btn_primary" bindtap="signIn">参与签到</button>
 </block>
-<block wx:elif="{{isSign==true}}">
+<block wx:elif="{{isSign===true}}">
 </block>

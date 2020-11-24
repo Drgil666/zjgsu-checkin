@@ -10,11 +10,11 @@ Page({
         let that = this
         that.getCheckSetList()
     },
-    createcheckin: function () {
+    /*createcheckin: function () {
         wx.navigateTo({
             url: '../createCheckSet/createCheckSet',
         })
-    },
+    },*/
     getCheckSet: function (e) {
         var id = e.currentTarget.dataset.id
         console.log(id)

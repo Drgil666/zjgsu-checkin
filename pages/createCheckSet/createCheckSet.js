@@ -2,21 +2,9 @@ var util = require('../../utils/util.js');
 Page({
     data: {
         nick: null,
-        timeList: [],
-        timeIndex: 10,
-        time: 10,
         visible: true
     },
     onLoad() {
-        let timeList = []
-        for (let index = 0; index <= 60; index++) {
-            timeList[index] = index;
-        }
-        console.log(timeList);
-        let that = this
-        that.setData({
-            timeList: timeList
-        })
     },
     nickChange: function (e) {
         let that = this
@@ -37,11 +25,11 @@ Page({
             visible: !that.data.visible
         })
     },
-    createCheckin: function () {
+    createCheckSet: function () {
         wx.showLoading({ title: '创建中...' })
         var url = getApp().globalData.backend
         let that = this
-        console.log("createCheckin")
+        console.log("createCheckSet")
         var checkin = {}
         checkin.nick = that.data.nick
         if (that.data.nick === "" || that.data.nick == null) {
@@ -78,10 +66,10 @@ Page({
                         icon: 'success'
                     })
                     setTimeout(function () {
-                        wx.navigateBack({
-                            delta: 0,
-                        })
-                    }, 2000) //延迟时间 这里是1秒
+                       wx.switchTab({
+                         url: '../teacher/teacher',
+                       })
+                    }, 2000)
                 },
                 fail: function () {
                     wx.hideLoading()

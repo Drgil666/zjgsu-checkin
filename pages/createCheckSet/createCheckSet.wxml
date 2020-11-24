@@ -18,7 +18,7 @@
             </div>
         </div>
         <div>
-            <button class="weui-btn weui-btn_primary" bindtap="createCheckin">创建签到</button>
+            <button class="weui-btn weui-btn_primary" bindtap="createCheckSet">创建签到</button>
         </div>
     </div>
 </div>
