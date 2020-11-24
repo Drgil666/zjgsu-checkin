@@ -9,8 +9,8 @@ Component({
         "pagePath": "/pages/teacher/teacher",
         "text": "我发起的签到"
       },{
-        "pagePath": "/pages/teacher/teacher",
-        "text": "我发起的签到"
+        "pagePath": "/pages/createCheckIn/createCheckIn",
+        "text": "创建签到"
       }
     ]
   },
