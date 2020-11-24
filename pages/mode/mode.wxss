@@ -4,7 +4,7 @@
     display:flex;
     width: 100px;
     height: 100px;
-    bottom: 400px;
+    bottom: 405px;
     right: 65px;
 }
 .stu
@@ -15,4 +15,17 @@
     height: 100px;
     bottom: 400px;
     left: 65px;
+}
+#student{
+    position: fixed;
+    font-size: 20px;
+    padding-left: 75px;
+    bottom: 380px;
+}
+#teacher{
+    position: fixed;
+    font-size: 20px;
+    bottom: 380px;
+    right: 75px;
+    
 }

@@ -4,9 +4,19 @@
 <div>
     <button bindtap="teacher">我是教师</button>
 </div>-->
-<div>
+<body>
+<div >
     <image class="stu" src="../image/stu.png" bindtap="stu"></image>
+    <div id="student"><a href="#">我是学生</a></div>
   </div>
   <div>
-    <image class="tea" src="../image/tea.png" bindtap="teacher"></image>
+    <p style="text-align:center;">
+        <image class="tea" src="../image/tea.png" bindtap="teacher"></image>
+        <div id="teacher"><a href="#">我是老师</a></div>
+    </p>
+    <!--<p style=" text-align:0px; text-align:center;font-size:14px">
+        <span>我是老师</span>
+    </p>-->
   </div>
+
+</body>

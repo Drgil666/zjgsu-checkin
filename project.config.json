@@ -1,26 +1,60 @@
 {
-    "description": "项目配置文件",
-    "packOptions": {
-        "ignore": []
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "enableEngineNative": false,
+  "useIsolateContext": true,
+  "useCompilerModule": true,
+  "userConfirmedUseCompilerModuleSwitch": false,
+  "packNpmManually": false,
+  "packNpmRelationList": [],
+  "compileType": "miniprogram",
+  "libVersion": "2.12.2",
+  "appid": "wx3ed951293baeadc9",
+  "projectname": "zjgsu-checkin",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "scripts": {},
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": false,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": false,
+    "useApiHook": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
     },
-    "enableEngineNative": false,
     "useIsolateContext": true,
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
     "packNpmManually": false,
-    "packNpmRelationList": [],
-    "compileType": "miniprogram",
-    "libVersion": "2.12.2",
-    "appid": "wx3ed951293baeadc9",
-    "projectname": "zjgsu-checkin",
-    "debugOptions": {
-        "hidedInDevtools": []
-    },
-    "scripts": {},
-    "isGameTourist": false,
-    "simulatorType": "wechat",
-    "simulatorPluginLibVersion": {},
-    "setting": {
+    "packNpmRelationList": []
+  },
+  "condition": {
+    "search": {
+      "list": [],
+      "setting": {
         "urlCheck": false,
         "es6": true,
         "enhance": false,
@@ -35,94 +69,60 @@
         "scopeDataCheck": false,
         "uglifyFileName": false,
         "checkInvalidKey": true,
-        "checkSiteMap": true,
+        "checkSiteMap": false,
         "uploadWithSourceMap": true,
         "compileHotReLoad": false,
         "useMultiFrameRuntime": false,
         "useApiHook": true,
         "babelSetting": {
-            "ignore": [],
-            "disablePlugins": [],
-            "outputPath": ""
+          "ignore": [],
+          "disablePlugins": [],
+          "outputPath": ""
         },
+        "enableEngineNative": false,
         "useIsolateContext": true,
         "useCompilerModule": true,
         "userConfirmedUseCompilerModuleSwitch": false,
         "packNpmManually": false,
         "packNpmRelationList": []
-    },
-    "condition": {
+      },
+      "compileType": "miniprogram",
+      "libVersion": "2.0.4",
+      "appid": "wx3ed951293baeadc9",
+      "projectname": "checkin-fore-end",
+      "debugOptions": {
+        "hidedInDevtools": []
+      },
+      "scripts": {},
+      "isGameTourist": false,
+      "simulatorType": "wechat",
+      "simulatorPluginLibVersion": {},
+      "condition": {
         "search": {
-            "list": [],
-            "setting": {
-                "urlCheck": false,
-                "es6": true,
-                "enhance": false,
-                "postcss": true,
-                "preloadBackgroundData": false,
-                "minified": true,
-                "newFeature": false,
-                "coverView": true,
-                "nodeModules": false,
-                "autoAudits": false,
-                "showShadowRootInWxmlPanel": true,
-                "scopeDataCheck": false,
-                "uglifyFileName": false,
-                "checkInvalidKey": true,
-                "checkSiteMap": false,
-                "uploadWithSourceMap": true,
-                "compileHotReLoad": false,
-                "useMultiFrameRuntime": false,
-                "useApiHook": true,
-                "babelSetting": {
-                    "ignore": [],
-                    "disablePlugins": [],
-                    "outputPath": ""
-                },
-                "enableEngineNative": false,
-                "useIsolateContext": true,
-                "useCompilerModule": true,
-                "userConfirmedUseCompilerModuleSwitch": false,
-                "packNpmManually": false,
-                "packNpmRelationList": []
-            },
-            "compileType": "miniprogram",
-            "libVersion": "2.0.4",
-            "appid": "wx3ed951293baeadc9",
-            "projectname": "checkin-fore-end",
-            "debugOptions": {
-                "hidedInDevtools": []
-            },
-            "scripts": {},
-            "isGameTourist": false,
-            "simulatorType": "wechat",
-            "simulatorPluginLibVersion": {},
-            "condition": {
-                "search": {
-                    "current": -1,
-                    "list": []
-                },
-                "conversation": {
-                    "current": -1,
-                    "list": []
-                },
-                "game": {
-                    "current": -1,
-                    "list": []
-                },
-                "plugin": {
-                    "current": -1,
-                    "list": []
-                },
-                "gamePlugin": {
-                    "current": -1,
-                    "list": []
-                },
-                "miniprogram": {
-                    "current": -1,
-                    "list": []
-                }
-            }
+          "current": -1,
+          "list": []
+        },
+        "conversation": {
+          "current": -1,
+          "list": []
+        },
+        "game": {
+          "current": -1,
+          "list": []
+        },
+        "plugin": {
+          "current": -1,
+          "list": []
+        },
+        "gamePlugin": {
+          "current": -1,
+          "list": []
+        },
+        "miniprogram": {
+          "current": -1,
+          "list": []
         }
+      }
     }
+  }
 }
