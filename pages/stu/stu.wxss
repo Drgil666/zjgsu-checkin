@@ -31,7 +31,7 @@
   justify-content: center;
   align-items:center;
 }
-.return_btn
+/*.return_btn
 {
   position: fixed;
   display:flex;
@@ -39,7 +39,7 @@
   height: 42px;
   top: 10px;
   left: 10px;
-}
+}*/
 .myInfo
 {
   position: fixed;
@@ -49,12 +49,12 @@
   top: 10px;
   right: 10px;
 }
-.add_icon
+.scan
 {
-    position: fixed;
-    display:flex;
-    width: 42px;
-    height: 42px;
-    bottom: 450px;
-    right: 10px;
+  position: fixed;
+  display:flex;
+  width: 42px;
+  height: 42px;
+  top: 10px;
+  left: 10px;
 }

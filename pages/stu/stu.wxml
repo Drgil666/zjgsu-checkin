@@ -38,11 +38,11 @@
     </div>
   </block>
   <div>
-    <image class="add_icon" src="../image/add-circle.png" bindtap="signIn"></image>
+    <image class="scan" src="../image/scan.png" bindtap="signIn"></image>
   </div>
-  <div>
+  <!--<div>
     <image class="return_btn" src="../image/return.png" bindtap="return"></image>
-  </div>
+  </div>-->
   <div>
     <image class="myInfo" src="../image/my.png" bindtap="myInfo"></image>
   </div>

@@ -1,0 +1,18 @@
+.tea
+{
+    position: absolute;
+    display:flex;
+    width: 100px;
+    height: 100px;
+    bottom: 400px;
+    right: 65px;
+}
+.stu
+{
+    position: fixed;
+    display:flex;
+    width: 100px;
+    height: 100px;
+    bottom: 400px;
+    left: 65px;
+}
