@@ -1,5 +1,5 @@
 <!--pages/checkinInformation/checkinInformation.wxml-->
-<div  class="weui-cell weui-cell_access">
+<div class="weui-cell weui-cell_access">
   <label class="weui-label" style="font-size:20px;font-style:bold;">签到名称:</label>
   <input class="weui-cell__hd" style="font-size:20px;font-style:bold;" value="{{nick}}" data-type="nick"
     bindblur="updateCheckSet"></input>
@@ -30,5 +30,6 @@
 <block wx:if="{{role==='teacher'}}">
   <div>
     <button class="weui-btn weui-btn_primary" bindtap="createCheckIn">新增签到环节</button>
+    <button class="weui-btn weui-btn_primary" bindtap="deleteCheckSet">删除签到</button>
   </div>
 </block>

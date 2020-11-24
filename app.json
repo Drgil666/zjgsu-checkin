@@ -1,18 +1,16 @@
 {
   "pages": [
-    
+    "pages/login/login",
     "pages/mode/mode",
     "pages/my/my",
     "pages/ShowCheckIn/ShowCheckIn",
     "pages/photo/photo",
     "pages/stu/stu",
-    "pages/login/login",
     "pages/teacher/teacher",
     "pages/createCheckSet/createCheckSet",
     "pages/getCheckSet/getCheckSet",
     "pages/getCheckIn/getCheckIn",
     "pages/createCheckIn/createCheckIn"
-    
     
   ],
   "window": {
@@ -22,13 +20,22 @@
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
+    "color": "#cccccc",
+    "selectedColor": "#0065FA",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
     "list": [
       {
         "pagePath": "pages/teacher/teacher",
-        "text": "我发起的签到"
+        "iconPath": "pages/image/sign-in.png",
+        "text": "我发起的签到",
+        "selectedIconPath": "pages/image/sign-in.png"
+         
       },{
         "pagePath": "pages/createCheckSet/createCheckSet",
-        "text": "创建签到"
+        "iconPath": "pages/image/set-up.png",
+        "text": "创建签到",
+        "selectedIconPath": "pages/image/set-up.png"
       }
     ]
   },

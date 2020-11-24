@@ -9,7 +9,7 @@ Page({
         checkInList: []
     },
     onLoad: function (e) {
-        let that=this
+        let that = this
         console.log(e.role)
         console.log(e.checkSetId)
         that.setData({
@@ -38,16 +38,16 @@ Page({
         })
     },
     getCheckIn: function (e) {
-        let that=this
+        let that = this
         let id = e.currentTarget.dataset.id
         wx.navigateTo({
-            url: '../getCheckIn/getCheckIn?checkInId=' + id+'&role='+that.data.role
+            url: '../getCheckIn/getCheckIn?checkInId=' + id + '&role=' + that.data.role
         })
     },
     createCheckIn: function () {
-        let that=this
+        let that = this
         wx.navigateTo({
-            url: '../createCheckIn/createCheckIn?checkSetId='+that.data.checkSetId,
+            url: '../createCheckIn/createCheckIn?checkSetId=' + that.data.checkSetId,
         })
     },
     getCheckSet: function () {
@@ -102,6 +102,45 @@ Page({
                     console.log(res.data)
                     that.setData({
                         checkInList: res.data.data
+                    })
+                } else {
+                    wx.showToast({
+                        title: res.data.msg
+                    })
+                }
+            },
+            fail: function () {
+                wx.hideLoading()
+                wx.showToast({
+                    title: '请求失败!',
+                })
+            }
+        })
+    },
+    deleteCheckSet: function () {
+        let url=app.globalData.backend
+        wx.showLoading({ title: '请求中...' })
+        wx.request({
+            url: url + '/api/checkSet', //这里填写你的接口路径
+            method: 'POST',
+            header: { //这里写你借口返回的数据是什么类型，这里就体现了微信小程序的强大，直接给你解析数据，再也不用去寻找各种方法去解析json，xml等数据了
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            data: { //这里写你要请求的参数
+                method: "delete",
+                data: {},
+                key: [this.data.checkSetId]
+            },
+            success: function (res) {
+                wx.hideLoading()
+                console.log(res.data)
+                if (res.data.code === 200) {
+                    wx.showToast({
+                        icon: 'none',
+                        title: '删除成功!'
+                    })
+                    wx.navigateBack({
+                      delta: 0,
                     })
                 } else {
                     wx.showToast({
