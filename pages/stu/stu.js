@@ -69,20 +69,19 @@ Page({
         })
       }
     })
-
   },
-  signIn: function () {
+  scanCode: function () {
     wx.scanCode({
       success(res) {
         console.log(res)
         try {
-          let data=JSON.parse(res.result)
+          let data = JSON.parse(res.result)
           console.log(JSON.parse(res.result))
           wx.navigateTo({
-            url: '../getCheckIn/getCheckIn?checkInId='+data.checkInId,
+            url: '../getCheckIn/getCheckIn?checkInId=' + data.checkInId,
           })
           wx.showToast({
-            title: '成功',
+            title: '扫描成功!',
             icon: 'success',
             duration: 2000
           })

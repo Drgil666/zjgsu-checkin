@@ -38,7 +38,7 @@
     </div>
   </block>
   <div>
-    <image class="scan" src="../image/scan.png" bindtap="signIn"></image>
+    <image class="scan" src="../image/scan.png" bindtap="scanCode"></image>
   </div>
   <!--<div>
     <image class="return_btn" src="../image/return.png" bindtap="return"></image>
