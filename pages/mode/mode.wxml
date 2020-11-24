@@ -5,8 +5,8 @@
     <button bindtap="teacher">我是教师</button>
 </div>-->
 <div>
-    <image class="stu" src="../image/stu.png" bindtap="stu"></image>
-  </div>
-  <div>
-    <image class="tea" src="../image/tea.png" bindtap="teacher"></image>
-  </div>
+  <image class="stu_img" src="../image/stu.png" bindtap="stu"></image>
+</div>
+<div>
+  <image class="tea_img" src="../image/tea.png" bindtap="teacher"></image>
+</div>

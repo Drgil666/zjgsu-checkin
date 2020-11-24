@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <div>
-    <button bindtap="login">登陆</button>
+    <button bindtap="login">登录</button>
 </div>
 <!--<view class="container">
   <view class="userinfo">

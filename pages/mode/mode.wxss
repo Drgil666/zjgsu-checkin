@@ -1,4 +1,4 @@
-.tea
+.tea_img
 {
     position: absolute;
     display:flex;
@@ -7,7 +7,7 @@
     bottom: 400px;
     right: 65px;
 }
-.stu
+.stu_img
 {
     position: fixed;
     display:flex;
