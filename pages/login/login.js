@@ -1,5 +1,10 @@
-Page({
+  const app = getApp()
+  Page({
+
   data: {
+    userInfo: {},
+    hasuserinfo: false,
+    canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   onLoad: function () {
     var that = this
@@ -92,3 +97,11 @@ Page({
     })
   }
 })
+/*getUserInfo:function() {
+  console.log(e)
+  app.globalData.userInfo = e.detail.userInfo
+  this.setData({
+    userInfo: e.detail.userInfo,
+    hasUserInfo: true
+  })
+}*/
