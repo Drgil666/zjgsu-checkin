@@ -11,8 +11,6 @@
     "pages/getCheckSet/getCheckSet",
     "pages/getCheckIn/getCheckIn",
     "pages/createCheckIn/createCheckIn"
-    
-    
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -21,13 +19,22 @@
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
+    "color": "#cccccc",
+    "selectedColor": "#0065FA",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
     "list": [
       {
         "pagePath": "pages/teacher/teacher",
-        "text": "我发起的签到"
-      },{
+        "iconPath": "pages/image/sign-in.png",
+        "text": "我发起的签到",
+        "selectedIconPath": "pages/image/sign-in.png"
+      },
+      {
         "pagePath": "pages/createCheckSet/createCheckSet",
-        "text": "创建签到"
+        "iconPath": "pages/image/set-up.png",
+        "text": "创建签到",
+        "selectedIconPath": "pages/image/set-up.png"
       }
     ]
   },

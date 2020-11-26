@@ -28,11 +28,12 @@
         <view>点击二维码可以手动刷新</view>
       </div>
     </div>
-    <button class="weui-btn weui-btn_primary" bindtap="">结束签到</button>
   </block>
+  <button class="weui-btn weui-btn_primary" bindtap="deleteModel">删除签到</button>
 </block>
 <block wx:elif="{{isSign===false}}">
   <button class="weui-btn weui-btn_primary" bindtap="signIn">参与签到</button>
 </block>
-<block wx:elif="{{isSign===true}}">
+<block wx:else>
+  <p>您已完成签到</p>
 </block>
