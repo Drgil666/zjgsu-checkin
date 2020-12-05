@@ -118,7 +118,7 @@ Page({
         })
     },
     deleteCheckSet: function () {
-        let url=app.globalData.backend
+        let url = app.globalData.backend
         wx.showLoading({ title: '请求中...' })
         wx.request({
             url: url + '/api/checkSet', //这里填写你的接口路径
@@ -136,12 +136,14 @@ Page({
                 console.log(res.data)
                 if (res.data.code === 200) {
                     wx.showToast({
-                        icon: 'none',
+                        icon: 'success',
                         title: '删除成功!'
                     })
-                    wx.navigateBack({
-                      delta: 0,
-                    })
+                    setTimeout(function () {
+                        wx.navigateBack({
+                            delta: 0,
+                        })
+                    }, 1500)
                 } else {
                     wx.showToast({
                         title: res.data.msg

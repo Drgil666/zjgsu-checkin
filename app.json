@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/login/login",
+    
     "pages/mode/mode",
+    "pages/login/login",
     "pages/my/my",
     "pages/ShowCheckIn/ShowCheckIn",
     "pages/photo/photo",
@@ -11,7 +12,6 @@
     "pages/getCheckSet/getCheckSet",
     "pages/getCheckIn/getCheckIn",
     "pages/createCheckIn/createCheckIn"
-    
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -30,8 +30,8 @@
         "iconPath": "pages/image/sign-in.png",
         "text": "我发起的签到",
         "selectedIconPath": "pages/image/sign-in.png"
-         
-      },{
+      },
+      {
         "pagePath": "pages/createCheckSet/createCheckSet",
         "iconPath": "pages/image/set-up.png",
         "text": "创建签到",

@@ -78,7 +78,7 @@ Page({
           let data = JSON.parse(res.result)
           console.log(JSON.parse(res.result))
           wx.navigateTo({
-            url: '../getCheckIn/getCheckIn?checkInId=' + data.checkInId,
+            url: '../getCheckIn/getCheckIn?role=stu&checkInId=' + data.checkInId,
           })
           wx.showToast({
             title: '扫描成功!',

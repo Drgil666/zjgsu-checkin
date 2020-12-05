@@ -69,7 +69,7 @@ Page({
                        wx.switchTab({
                          url: '../teacher/teacher',
                        })
-                    }, 2000)
+                    }, 1500)
                 },
                 fail: function () {
                     wx.hideLoading()
