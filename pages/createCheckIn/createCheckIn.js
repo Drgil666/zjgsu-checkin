@@ -81,7 +81,8 @@ Page({
             url: url + '/api/checkin',
             method: 'POST',
             header: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Token':app.globalData.Token
             },
             data: { //这里写你要请求的参数
                 method: 'create',

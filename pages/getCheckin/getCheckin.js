@@ -54,7 +54,8 @@ Page({
             url: url + '/api/checkin', //这里填写你的接口路径
             method: 'GET',
             header: { //这里写你借口返回的数据是什么类型，这里就体现了微信小程序的强大，直接给你解析数据，再也不用去寻找各种方法去解析json，xml等数据了
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Token': app.globalData.Token
             },
             data: { //这里写你要请求的参数
                 checkId: that.data.checkInId
@@ -62,6 +63,11 @@ Page({
             success: function (res) {
                 wx.hideLoading()
                 if (res.data.code === 200) {
+                    if (new Date().getTime() < new Date(res.data.data.startTime).getTime())
+                        res.data.data.status = 0
+                    else if (new Date().getTime() > new Date(res.data.data.endTime).getTime())
+                        res.data.data.status = 2
+                    else res.data.data.status = 1
                     console.log(res.data.data)
                     that.setData({
                         checkIn: res.data.data
@@ -82,7 +88,9 @@ Page({
     },
     createQrCode: function () {
         let that = this
-        if (new Date() <= that.data.checkIn.endTime) {
+        console.log(new Date().getTime())
+        console.log(new Date(that.data.checkIn.endTime).getTime())
+        if (new Date().getTime() <= new Date(that.data.checkIn.endTime).getTime()) {
             that.setData({
                 buttonVisible: !that.data.buttonVisible
             })
@@ -106,11 +114,11 @@ Page({
             url: url + '/api/QrCode',
             method: 'POST',
             header: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Token': app.globalData.Token
             },
             data: {
                 checkInId: that.data.checkIn.id,
-                userId: wx.getStorageSync('userid'),
                 role: "stu",
                 date: new Date()
             },
@@ -138,7 +146,7 @@ Page({
     onUnload: function () {
         let that = this
         clearInterval(that.interval)
-    },
+    },//页面退出时清空页面
     signIn: function () {
         wx.navigateTo({
             url: '../photo/photo?type=signin',
@@ -166,7 +174,8 @@ Page({
             url: url + '/api/checkin', //这里填写你的接口路径
             method: 'POST',
             header: { //这里写你借口返回的数据是什么类型，这里就体现了微信小程序的强大，直接给你解析数据，再也不用去寻找各种方法去解析json，xml等数据了
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Token': app.globalData.Token
             },
             data: { //这里写你要请求的参数
                 method: "delete",

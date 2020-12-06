@@ -7,9 +7,6 @@ Page({
     checkSetlist: []
   },
   onLoad: function () {
-    let that = this
-    var userId = wx.getStorageSync('userid')
-    console.log(userId)
   },
   getcheck: function () {
   },
@@ -37,15 +34,16 @@ Page({
   getCheckSetList: function () {
     let that = this
     let url = app.globalData.backend
+    console.log(app.globalData.Token)
     wx.showLoading({ title: '获取数据中...' })
     wx.request({
       url: url + '/api/checkSet/findByUserId', //这里填写你的接口路径
       method: 'GET',
       header: { //这里写你借口返回的数据是什么类型，这里就体现了微信小程序的强大，直接给你解析数据，再也不用去寻找各种方法去解析json，xml等数据了
-        'Content-Type': 'application/json;charset=utf-8'
+        'Content-Type': 'application/json;charset=utf-8',
+        'Token':app.globalData.Token
       },
       data: { //这里写你要请求的参数
-        userId: wx.getStorageSync('userid')
       },
       success: function (res) {
         wx.hideLoading()

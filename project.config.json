@@ -45,7 +45,6 @@
             "disablePlugins": [],
             "outputPath": ""
         },
-        "enableEngineNative": false,
         "useIsolateContext": true,
         "useCompilerModule": true,
         "userConfirmedUseCompilerModuleSwitch": false,
@@ -65,7 +64,7 @@
                 "minified": true,
                 "newFeature": false,
                 "coverView": true,
-                "nodeModules": false,
+                "nodeModules": true,
                 "autoAudits": false,
                 "showShadowRootInWxmlPanel": true,
                 "scopeDataCheck": false,
@@ -86,19 +85,9 @@
                 "useCompilerModule": true,
                 "userConfirmedUseCompilerModuleSwitch": false,
                 "packNpmManually": false,
-                "packNpmRelationList": []
+                "packNpmRelationList": [],
+                "minifyWXSS": true
             },
-            "compileType": "miniprogram",
-            "libVersion": "2.0.4",
-            "appid": "wx3ed951293baeadc9",
-            "projectname": "checkin-fore-end",
-            "debugOptions": {
-                "hidedInDevtools": []
-            },
-            "scripts": {},
-            "isGameTourist": false,
-            "simulatorType": "wechat",
-            "simulatorPluginLibVersion": {},
             "condition": {
                 "search": {
                     "current": -1,

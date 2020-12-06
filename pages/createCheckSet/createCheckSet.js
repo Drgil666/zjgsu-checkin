@@ -1,4 +1,4 @@
-var util = require('../../utils/util.js');
+const app=getApp()
 Page({
     data: {
         nick: null,
@@ -45,13 +45,13 @@ Page({
             else {
                 checkin.visible = 0
             }
-            checkin.userId = wx.getStorageSync('userid')
             console.log(checkin)
             wx.request({
                 url: url + '/api/checkSet', //这里填写你的接口路径
                 method: 'POST',
                 header: {
-                    'Content-Type': 'application/json;charset=utf-8'
+                    'Content-Type': 'application/json;charset=utf-8',
+                    'Token':app.globalData.Token
                 },
                 data: { //这里写你要请求的参数
                     method: "create",

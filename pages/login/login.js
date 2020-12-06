@@ -23,7 +23,6 @@ Page({
             success: function (res) {
               console.log(res.userInfo)
               that.setData({
-
                 userInfo: res.userInfo
               })
             },
@@ -81,7 +80,8 @@ Page({
       success: function (res) {
         if (res.data.code === 200) {
           console.log(res.data.data)
-          wx.setStorageSync('userid', res.data.data)
+          getApp().globalData.Token = res.data.data
+          // wx.setStorageSync('userid', res.data.data)
           wx.hideLoading()
           wx.navigateTo({
             url: '../mode/mode',

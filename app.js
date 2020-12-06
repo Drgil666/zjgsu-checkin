@@ -37,6 +37,7 @@ App({
     backend: "http://10.21.234.24:8080",
     apiKey:"a2W3xpdwboiZZHN2NKIPqZXy",
     secretKey:"tuGXFGmzfgcnG9CejHIe9wa1DzcLimiE",
-    threshold:0.957
+    threshold:0.957,
+    Token:''
   }
 })
