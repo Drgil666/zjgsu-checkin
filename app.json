@@ -1,9 +1,9 @@
 {
   "pages": [
     "pages/login/login",
+    "pages/ShowCheckIn/ShowCheckIn",
     "pages/mode/mode",
     "pages/my/my",
-    "pages/ShowCheckIn/ShowCheckIn",
     "pages/photo/photo",
     "pages/stu/stu",
     "pages/teacher/teacher",

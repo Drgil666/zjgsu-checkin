@@ -2,7 +2,7 @@
     <div class="page__hd" style="display:flex;">
     <view style="font-size:20px;">签到实况显示</view>
   </div>
-<!--<view class="page">
+<view class="page">
     <view class="page__hd">
         <view class="page__title">SearchBar</view>
         <view class="page__desc">搜索栏</view>
@@ -10,10 +10,5 @@
     <view class="page__bd">
         <mp-searchbar bindselectresult="selectResult" search="{{search}}"></mp-searchbar>
     </view>
-<<<<<<< HEAD
 </view>
-=======
-</view>-->
-
 </div>
->>>>>>> zyk

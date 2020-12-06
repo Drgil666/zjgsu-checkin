@@ -258,5 +258,11 @@ Page({
                 })
             }
         })
+    },
+    showCheckIn:function()
+    {
+        wx.navigateTo({
+          url: '../ShowCheckIn/ShowCheckIn?checkId='+this.data.checkInId,
+        })
     }
 })

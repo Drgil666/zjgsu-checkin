@@ -29,6 +29,7 @@
       </div>
     </div>
   </block>
+  <button class="weui-btn weui-btn_primary" bindtap="showCheckIn">查看签到情况</button>
   <button class="weui-btn weui-btn_primary" bindtap="deleteModel">删除签到</button>
 </block>
 <block wx:elif="{{isSign===false}}">
