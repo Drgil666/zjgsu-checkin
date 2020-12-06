@@ -88,8 +88,8 @@
         "packNpmManually": false,
         "packNpmRelationList": [],
         "minifyWXSS": true
-    },
-    "condition": {
+      },
+      "condition": {
         "search": {
           "current": -1,
           "list": []

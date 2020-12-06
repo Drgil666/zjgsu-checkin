@@ -45,7 +45,7 @@ Page({
             else {
                 checkin.visible = 0
             }
-            checkin.userId = wx.getStorageSync('userid')
+            checkin.userId = app.globalData.token//wx.getStorageSync('userid')
             console.log(checkin)
             wx.request({
                 url: url + '/api/checkSet', //这里填写你的接口路径

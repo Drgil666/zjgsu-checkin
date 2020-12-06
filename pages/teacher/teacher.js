@@ -49,7 +49,7 @@ Page({
                 'Content-Type': 'application/json;charset=utf-8'
             },
             data: { //这里写你要请求的参数
-                userId: wx.getStorageSync('userid')
+                userId: app.globalData.token//wx.getStorageSync('userid')
             },
             success: function (res) {
                 wx.hideLoading()

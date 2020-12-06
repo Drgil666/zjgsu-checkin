@@ -89,7 +89,7 @@ Page({
             that.getQrCode()
             that.interval = setInterval(function () {
                 that.getQrCode()
-            }, 10000)
+            }, 10000)//每隔10s获取一次二维码
         }
         else {
             wx.showToast({
@@ -138,7 +138,7 @@ Page({
     onUnload: function () {
         let that = this
         clearInterval(that.interval)
-    },
+    },//页面退出时清空页面
     signIn: function () {
         wx.navigateTo({
             url: '../photo/photo?type=signin',

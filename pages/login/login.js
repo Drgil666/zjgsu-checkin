@@ -81,7 +81,8 @@ Page({
       success: function (res) {
         if (res.data.code === 200) {
           console.log(res.data.data)
-          wx.setStorageSync('userid', res.data.data)
+          app.globalData.token = res.data.data
+          // wx.setStorageSync('userid', res.data.data)
           wx.hideLoading()
           wx.navigateTo({
             url: '../mode/mode',

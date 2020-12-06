@@ -1,0 +1,7 @@
+.page__hd{
+  width: 700rpx;
+  height: 80rpx;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+}
