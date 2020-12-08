@@ -24,13 +24,15 @@ Page({
     this.data.cameraContext.takePhoto({
       quality: "high", //高质量的图片
       success: res => {
-        let tempImagePath = res.tempImagePath//res.tempImagePath照片文件在手机内的的临时路径
+        let tempImagePath = res.tempImagePath //res.tempImagePath照片文件在手机内的的临时路径
         let photobase64 = wx.getFileSystemManager().readFileSync(tempImagePath, "base64")
         // console.log(photobase64)
         that.setData({
           photobase64: photobase64
         })
-        wx.showLoading({ title: '活体识别中...' })
+        wx.showLoading({
+          title: '活体识别中...'
+        })
         that.humanCheck(photobase64)
       },
     })
@@ -60,14 +62,12 @@ Page({
     wx.request({
       url: 'https://aip.baidubce.com/rest/2.0/face/v3/faceverify?access_token=' + that.data.accessToken,
       method: 'post',
-      data: [
-        {
-          image: photobase64,
-          image_type: "BASE64",
-          "face_field": "age,beauty,spoofing,quality",
-          "option": "COMMON"
-        }
-      ],
+      data: [{
+        image: photobase64,
+        image_type: "BASE64",
+        "face_field": "age,beauty,spoofing,quality",
+        "option": "COMMON"
+      }],
       success: res => {
         wx.hideLoading()
         // console.log(res.data)
@@ -76,8 +76,7 @@ Page({
           //活体识别阀值设置
           if (res.data.result.face_liveness >= app.globalData.threshold) {
             that.compareCheck(that.data.userphoto, photobase64)
-          }
-          else {
+          } else {
             wx.showToast({
               icon: 'success',
               title: '人脸吻合度不足!请调整重新拍照!',
@@ -100,16 +99,15 @@ Page({
     wx.request({
       url: 'https://aip.baidubce.com/rest/2.0/face/v3/match?access_token=' + that.data.accessToken,
       method: 'post',
-      data: [
-        {
-          "image": userphoto,
+      data: [{
+          "image": photobase64,
           "image_type": "BASE64",
           "face_type": "LIVE",
           "quality_control": "LOW",
           "liveness_control": "HIGH"
         },
         {
-          "image": photobase64,
+          "image": userphoto,
           "image_type": "BASE64",
           "face_type": "IDCARD",
           "quality_control": "LOW",
@@ -117,16 +115,21 @@ Page({
         }
       ],
       success: function (res) {
-        console.log(res.data.result.score)
-        if (res.data.result.score >= app.globalData.compareThreshold)
-        {
-          wx.showToast({
-            title: '人脸识别成功!',
-            icon: 'success',
-          }),
-          that.createPhoto(photobase64)
-        }
-        else{
+        console.log(res.data)
+        if (res.data.error_code === 0) {
+          if (res.data.result.score >= app.globalData.compareThreshold) {
+            wx.showToast({
+                title: '人脸识别成功!',
+                icon: 'success',
+              }),
+              that.createPhoto(photobase64)
+          } else {
+            wx.showToast({
+              icon: 'success',
+              title: '人脸对比失败!请重新拍摄',
+            })
+          }
+        } else {
           wx.showToast({
             icon: 'success',
             title: '人脸对比失败!请重新拍摄',
@@ -152,8 +155,7 @@ Page({
         data: {
           photoId: photobase64
         }
-      }
-      ,
+      },
       success: res => {
         console.log(res.data.data)
         that.setData({
