@@ -23,7 +23,7 @@ Page({
     let that = this
     this.data.cameraContext = wx.createCameraContext()
     this.data.cameraContext.takePhoto({
-      quality: "high", //高质量的图片
+      quality: "low", //高质量的图片
       success: res => {
         let tempImagePath = res.tempImagePath //res.tempImagePath照片文件在手机内的的临时路径
         let photobase64 = wx.getFileSystemManager().readFileSync(tempImagePath, "base64")
@@ -169,7 +169,7 @@ Page({
         that.setData({
           photoId: res.data.data.id
         })
-        wx.setStorageSync('photo', photobase64)
+        wx.setStorageSync('photo', res.data.data.id)
         if (that.data.type === "user") {
           wx.showToast({
             title: '人脸录入成功!',

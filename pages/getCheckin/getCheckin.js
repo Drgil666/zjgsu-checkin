@@ -219,7 +219,7 @@ Page({
         let url = app.globalData.backend
         let sign = {}
         // sign.photoId = photo
-        sign.photoId = "111"
+        sign.photoId = photo
         sign.signTime = new Date()
         sign.checkId = parseInt(that.data.checkInId)
         console.log(sign)
