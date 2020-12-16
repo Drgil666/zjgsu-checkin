@@ -29,7 +29,7 @@ Page({
         let photo = wx.getStorageSync('photo')
         console.log(photo)
         if (photo !== "") {
-            console.log("photo is not null!")
+            // console.log("photo is not null!")
             that.createSignIn(photo)
         }
     },

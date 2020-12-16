@@ -15,8 +15,8 @@ Page({
       type: e.type
     })
     that.getAccessToken()
-    if(that.data.type==="signin")
-    that.getPhoto()
+    if (that.data.type === "signin")
+      that.getPhoto()
   },
   // 拍摄按钮按下, 执行record 触发拍摄
   record: function () {
@@ -169,10 +169,11 @@ Page({
         that.setData({
           photoId: res.data.data.id
         })
-        if(that.data.type==="user"){
+        wx.setStorageSync('photo', photobase64)
+        if (that.data.type === "user") {
           wx.showToast({
             title: '人脸录入成功!',
-            icon:'success'
+            icon: 'success'
           })
         }
         setTimeout(function () {
@@ -203,9 +204,22 @@ Page({
       data: {},
       success: res => {
         console.log(res.data.data)
-        that.setData({
-          userphoto: res.data.data.photoId
-        })
+        if (res.data.data=== null) {
+          wx.showToast({
+            title: '用户照片未录入!请去个人界面录入照片!',
+            icon: 'none'
+          })
+          setTimeout(function () {
+            wx.navigateBack({
+              delta: 0,
+            })
+          }, 1000)
+        }
+        else {
+          that.setData({
+            userphoto: res.data.data.photoId
+          })
+        }
       },
       fail: function () {
         wx.hideLoading()
@@ -215,5 +229,5 @@ Page({
         })
       }
     })
-  }
+  },
 })
