@@ -15,6 +15,7 @@ Page({
       type: e.type
     })
     that.getAccessToken()
+    if(that.data.type==="signin")
     that.getPhoto()
   },
   // 拍摄按钮按下, 执行record 触发拍摄
@@ -38,7 +39,6 @@ Page({
     })
   },
   onUnload: function () {
-
   },
   getAccessToken: function () {
     let that = this
@@ -75,7 +75,12 @@ Page({
           console.log(res.data.result.face_liveness)
           //活体识别阀值设置
           if (res.data.result.face_liveness >= app.globalData.threshold) {
-            that.compareCheck(that.data.userphoto, photobase64)
+            if (that.data.type === "signin") {
+              that.compareCheck(that.data.userphoto, photobase64)
+            }
+            else if (that.data.type === "user") {
+              that.createPhoto(photobase64)
+            }
           } else {
             wx.showToast({
               icon: 'none',
@@ -125,7 +130,7 @@ Page({
             }),
               that.createPhoto(photobase64)
           }
-          else{
+          else {
             wx.showToast({
               icon: 'none',
               title: '人脸对比失败!请重新拍摄',
@@ -164,6 +169,12 @@ Page({
         that.setData({
           photoId: res.data.data.id
         })
+        if(that.data.type==="user"){
+          wx.showToast({
+            title: '人脸录入成功!',
+            icon:'success'
+          })
+        }
         setTimeout(function () {
           wx.navigateBack({
             delta: 0,
@@ -191,7 +202,7 @@ Page({
       },
       data: {},
       success: res => {
-        // console.log(res.data.data.photoId)
+        console.log(res.data.data)
         that.setData({
           userphoto: res.data.data.photoId
         })
