@@ -2,7 +2,14 @@
     <div class="page__hd" style="display:flex;">
     <view style="font-size:20px;">签到实况显示</view>
   </div>
-<view class="page">
+  <block wx:key="item" wx:for="{{checkSetlist}}">
+    <div class="weui-panel__bd" bindtap="getSignIn" data-id="{{item.id}}">
+      <a herf="" class="weui-media-box weui-media-box_appmsg">
+        <view class="weui-panel__bd">{{item.nick+" "+item.stuNo}}</view>
+      </a>
+    </div>
+  </block>
+<!--<view class="page">
     <view class="page__hd">
         <view class="page__title">SearchBar</view>
         <view class="page__desc">搜索栏</view>
@@ -10,5 +17,5 @@
     <view class="page__bd">
         <mp-searchbar bindselectresult="selectResult" search="{{search}}"></mp-searchbar>
     </view>
-</view>
+</view>-->
 </div>

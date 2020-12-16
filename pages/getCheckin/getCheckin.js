@@ -81,8 +81,8 @@ Page({
     },
     createQrCode: function () {
         let that = this
-        console.log(new Date().getTime())
-        console.log(new Date(that.data.checkIn.endTime).getTime())
+        // console.log(new Date().getTime())
+        // console.log(new Date(that.data.checkIn.endTime).getTime())
         if (new Date().getTime() <= new Date(that.data.checkIn.endTime).getTime()) {
             that.setData({
                 buttonVisible: !that.data.buttonVisible
@@ -139,7 +139,7 @@ Page({
     onUnload: function () {
         let that = this
         clearInterval(that.interval)
-    },
+    },//页面退出时清空页面
     signIn: function () {
         let that = this
         if (new Date().getTime() <= new Date(that.data.checkIn.endTime).getTime()
