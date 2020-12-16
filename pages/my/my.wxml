@@ -8,28 +8,43 @@
   </navigator>navigator为一种跳转方式 hover-class为当选择连接时，设置的连接样式 -->
   <div url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
     <view class="weui-cell__bd">姓名</view>
-    <input class="weui-cell__ft weui-cell__ft_in-access" value="{{userinfo.nick}}" bindblur="updateuser" data-type="name"></input>
+    <input class="weui-cell__ft weui-cell__ft_in-access" value="{{userinfo.nick}}" bindblur="updateuser"
+      data-type="name"></input>
   </div>
   <div class="weui-cell weui-cell_access" hover-class="weui-cell_active">
     <view class="weui-cell__bd">学号</view>
-    <input class="weui-cell__ft weui-cell__ft_in-access" value="{{userinfo.stuNo}}" bindblur="updateuser" data-type="stuNo"></input>
+    <input class="weui-cell__ft weui-cell__ft_in-access" value="{{userinfo.stuNo}}" bindblur="updateuser"
+      data-type="stuNo"></input>
   </div>
   <div class="weui-cell weui-cell_access" hover-class="weui-cell_active">
     <view class="weui-cell__bd">邮箱</view>
-    <input class="weui-cell__ft weui-cell__ft_in-access" value="{{userinfo.mail}}" bindblur="updateuser" data-type="mail"></input>
+    <input class="weui-cell__ft weui-cell__ft_in-access" value="{{userinfo.mail}}" bindblur="updateuser"
+      data-type="mail"></input>
   </div>
-  <div class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-    <view class="weui-cell__bd">学校</view>
-    <input class="weui-cell__ft weui-cell__ft_in-access" value="{{userinfo.school}}" bindblur="updateuser" data-type="school"></input>
-  </div>
-  <div class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-    <view class="weui-cell__bd">学院</view>
-    <input class="weui-cell__ft weui-cell__ft_in-access" value="{{userinfo.academy}}"bindblur="updateuser" data-type="academy"></input>
-  </div>
-  <div class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-    <view class="weui-cell__bd">专业</view>
-    <input class="weui-cell__ft weui-cell__ft_in-access" value="{{userinfo.major}}" bindblur="updateuser" data-type="major"></input>
-  </div>
+  <picker bindchange="schoolChange" value="{{schoolIndex}}" range="{{school}}" data-type="school">
+    <div class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__bd">学校</view>
+      <view class="weui-cell__ft">
+        {{school[schoolIndex]}}
+      </view>
+    </div>
+  </picker>
+  <picker bindchange="academyChange" value="{{academyIndex}}" range="{{academy}}" data-type="academy">
+    <div class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__bd">学院</view>
+      <view class="weui-cell__ft">
+        {{academy[academyIndex]}}
+      </view>
+    </div>
+  </picker>
+  <picker bindchange="majorChange" value="{{majorIndex}}" range="{{major}}" data-type="major">
+    <div class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__bd">专业</view>
+      <view class="weui-cell__ft">
+        {{major[majorIndex]}}
+      </view>
+    </div>
+  </picker>
   <div class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="takephoto">
     <view class="weui-cell__bd">照片</view>
     <view class="weui-cell__ft weui-cell__ft_in-access">打开相机拍摄</view>

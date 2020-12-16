@@ -78,7 +78,7 @@ Page({
             that.compareCheck(that.data.userphoto, photobase64)
           } else {
             wx.showToast({
-              icon: 'success',
+              icon: 'none',
               title: '人脸吻合度不足!请调整重新拍照!',
             })
           }
@@ -100,38 +100,41 @@ Page({
       url: 'https://aip.baidubce.com/rest/2.0/face/v3/match?access_token=' + that.data.accessToken,
       method: 'post',
       data: [{
-          "image": photobase64,
-          "image_type": "BASE64",
-          "face_type": "LIVE",
-          "quality_control": "LOW",
-          "liveness_control": "HIGH"
-        },
-        {
-          "image": userphoto,
-          "image_type": "BASE64",
-          "face_type": "IDCARD",
-          "quality_control": "LOW",
-          "liveness_control": "HIGH"
-        }
+        "image": photobase64,
+        "image_type": "BASE64",
+        "face_type": "LIVE",
+        "quality_control": "LOW",
+        "liveness_control": "LOW"
+      },
+      {
+        "image": userphoto,
+        "image_type": "BASE64",
+        "face_type": "IDCARD",
+        "quality_control": "LOW",
+        "liveness_control": "LOW"
+      }
       ],
       success: function (res) {
         console.log(res.data)
         if (res.data.error_code === 0) {
+          console.log(res.data.result.score)
           if (res.data.result.score >= app.globalData.compareThreshold) {
             wx.showToast({
-                title: '人脸识别成功!',
-                icon: 'success',
-              }),
+              title: '人脸识别成功!',
+              icon: 'none',
+            }),
               that.createPhoto(photobase64)
-          } else {
+          }
+          else{
             wx.showToast({
-              icon: 'success',
+              icon: 'none',
               title: '人脸对比失败!请重新拍摄',
             })
           }
-        } else {
+        }
+        else {
           wx.showToast({
-            icon: 'success',
+            icon: 'none',
             title: '人脸对比失败!请重新拍摄',
           })
         }
@@ -170,6 +173,7 @@ Page({
       fail: function () {
         wx.hideLoading()
         wx.showToast({
+          icon: 'none',
           title: '请求失败,请重试!',
         })
       }
@@ -195,6 +199,7 @@ Page({
       fail: function () {
         wx.hideLoading()
         wx.showToast({
+          icon: 'none',
           title: '请求失败,请重试!',
         })
       }
