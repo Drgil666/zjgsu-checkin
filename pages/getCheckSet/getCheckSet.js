@@ -3,7 +3,6 @@ Page({
     data: {
         checkSetId: 1,
         role: null,
-        userId: wx.getStorageSync('userid'),
         visible: 1,
         nick: "Web前端技术开发",
         checkInList: []
@@ -57,7 +56,8 @@ Page({
             url: url + '/api/checkSet', //这里填写你的接口路径
             method: 'GET',
             header: { //这里写你借口返回的数据是什么类型，这里就体现了微信小程序的强大，直接给你解析数据，再也不用去寻找各种方法去解析json，xml等数据了
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Token': app.globalData.Token
             },
             data: { //这里写你要请求的参数
                 checkSetId: that.data.checkSetId
@@ -91,7 +91,8 @@ Page({
             url: url + '/api/checkin/List', //这里填写你的接口路径
             method: 'GET',
             header: { //这里写你借口返回的数据是什么类型，这里就体现了微信小程序的强大，直接给你解析数据，再也不用去寻找各种方法去解析json，xml等数据了
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Token': app.globalData.Token
             },
             data: { //这里写你要请求的参数
                 setId: that.data.checkSetId
@@ -99,7 +100,17 @@ Page({
             success: function (res) {
                 wx.hideLoading()
                 if (res.data.code === 200) {
-                    console.log(res.data)
+                    for (let i = 0; i < res.data.data.length; i++) {
+                        // console.log(new Date().getTime())
+                        // console.log(new Date(res.data.data[i].startTime).getTime())
+                        // console.log(new Date(res.data.data[i].endTime).getTime())
+                        if (new Date().getTime() < new Date(res.data.data[i].startTime).getTime())
+                            res.data.data[i].status = 0
+                        else if (new Date().getTime() > new Date(res.data.data[i].endTime).getTime())
+                            res.data.data[i].status = 2
+                        else res.data.data[i].status = 1
+                    }
+                    console.log(res.data.data)
                     that.setData({
                         checkInList: res.data.data
                     })
@@ -124,7 +135,8 @@ Page({
             url: url + '/api/checkSet', //这里填写你的接口路径
             method: 'POST',
             header: { //这里写你借口返回的数据是什么类型，这里就体现了微信小程序的强大，直接给你解析数据，再也不用去寻找各种方法去解析json，xml等数据了
-                'Content-Type': 'application/json;charset=utf-8'
+                'Content-Type': 'application/json;charset=utf-8',
+                'Token': app.globalData.Token
             },
             data: { //这里写你要请求的参数
                 method: "delete",

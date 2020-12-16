@@ -1,10 +1,9 @@
 {
   "pages": [
-    
-    "pages/mode/mode",
     "pages/login/login",
-    "pages/my/my",
+    "pages/mode/mode",
     "pages/ShowCheckIn/ShowCheckIn",
+    "pages/my/my",
     "pages/photo/photo",
     "pages/stu/stu",
     "pages/teacher/teacher",

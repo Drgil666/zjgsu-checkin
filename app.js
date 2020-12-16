@@ -38,6 +38,7 @@ App({
     apiKey:"a2W3xpdwboiZZHN2NKIPqZXy",
     secretKey:"tuGXFGmzfgcnG9CejHIe9wa1DzcLimiE",
     threshold:0.957,
-    token:''
+    compareThreshold:80,
+    Token:''
   }
 })
