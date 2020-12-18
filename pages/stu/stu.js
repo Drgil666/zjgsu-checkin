@@ -50,7 +50,7 @@ Page({
         console.log(res.data)
         if (res.data.code == 200) {
           that.setData({
-            checkSetlist: res.data.data
+            checkSetlist: res.data.data.data
           })
         }
         else {

@@ -88,7 +88,7 @@ Page({
         let that = this
         let url = app.globalData.backend
         wx.request({
-            url: url + '/api/checkin/List', //这里填写你的接口路径
+            url: url + '/api/checkin/'+that.data.role+'/list', //这里填写你的接口路径
             method: 'GET',
             header: { //这里写你借口返回的数据是什么类型，这里就体现了微信小程序的强大，直接给你解析数据，再也不用去寻找各种方法去解析json，xml等数据了
                 'Content-Type': 'application/json',
@@ -100,19 +100,19 @@ Page({
             success: function (res) {
                 wx.hideLoading()
                 if (res.data.code === 200) {
-                    for (let i = 0; i < res.data.data.length; i++) {
+                    for (let i = 0; i < res.data.data.data.length; i++) {
                         // console.log(new Date().getTime())
-                        // console.log(new Date(res.data.data[i].startTime).getTime())
-                        // console.log(new Date(res.data.data[i].endTime).getTime())
-                        if (new Date().getTime() < new Date(res.data.data[i].startTime).getTime())
-                            res.data.data[i].status = 0
-                        else if (new Date().getTime() > new Date(res.data.data[i].endTime).getTime())
-                            res.data.data[i].status = 2
-                        else res.data.data[i].status = 1
+                        // console.log(new Date(res.data.data.data[i].startTime).getTime())
+                        // console.log(new Date(res.data.data.data[i].endTime).getTime())
+                        if (new Date().getTime() < new Date(res.data.data.data[i].startTime).getTime())
+                            res.data.data.data[i].status = 0
+                        else if (new Date().getTime() > new Date(res.data.data.data[i].endTime).getTime())
+                            res.data.data.data[i].status = 2
+                        else res.data.data.data[i].status = 1
                     }
                     console.log(res.data.data)
                     that.setData({
-                        checkInList: res.data.data
+                        checkInList: res.data.data.data
                     })
                 } else {
                     wx.showToast({

@@ -27,7 +27,7 @@
     <view wx:if="{{(item.type>>1)%2==1}}">签退</view>
   </div>
 </div>
-<block wx:if="{{role==='teacher'}}">
+<block wx:if="{{role==='false'}}">
   <div>
     <button class="weui-btn weui-btn_primary" bindtap="createCheckIn">新增签到环节</button>
     <button class="weui-btn weui-btn_primary" bindtap="deleteCheckSet">删除签到</button>

@@ -1,0 +1,20 @@
+<div class="weui-cell weui-cell_access">
+  <label class="weui-label" style="font-size:20px;font-style:bold;">签到时间:</label>
+  <div class="weui-cell__hd" style="font-size:20px;font-style:bold;">
+    <view>{{sign.signTime}}</view>
+  </div>
+</div>
+<div class="weui-cell weui-cell_access">
+  <label class="weui-label" style="font-size:20px;font-style:bold;">签到学生:</label>
+  <div class="weui-cell__hd" style="font-size:20px;font-style:bold;">
+    <view>{{sign.stuName}}</view>
+  </div>
+</div>
+<div class="weui-cell weui-cell_access">
+  <label class="weui-label" style="font-size:20px;font-style:bold;">签到照片:</label>
+  <div class="weui-cell__hd" style="font-size:20px;font-style:bold;">
+  </div>
+</div>
+<div class="qrcode">
+  <image src="{{photo}}" mode="aspectFit"/>
+</div>

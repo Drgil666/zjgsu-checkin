@@ -10,7 +10,8 @@
     "pages/createCheckSet/createCheckSet",
     "pages/getCheckSet/getCheckSet",
     "pages/getCheckIn/getCheckIn",
-    "pages/createCheckIn/createCheckIn"
+    "pages/createCheckIn/createCheckIn",
+    "pages/getSign/getSign"
   ],
   "window": {
     "backgroundTextStyle": "light",
