@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/login/login",
-    "pages/ShowCheckIn/ShowCheckIn",
     "pages/mode/mode",
+    "pages/ShowCheckIn/ShowCheckIn",
     "pages/my/my",
     "pages/photo/photo",
     "pages/stu/stu",
