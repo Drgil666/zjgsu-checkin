@@ -11,13 +11,13 @@ Page({
         isSign: false,
         signButton: false,
         checkBox: [{
-                value: 1,
-                name: '签到'
-            },
-            {
-                value: 2,
-                name: '签退'
-            }
+            value: 1,
+            name: '签到'
+        },
+        {
+            value: 2,
+            name: '签退'
+        }
         ],
         sign: {}
     },
@@ -36,7 +36,7 @@ Page({
         that.isSign()
         let photo = wx.getStorageSync('photo')
         console.log(photo)
-        if (photo !== "") {
+        if (photo !== "" && photo !== null) {
             that.createSignIn(photo)
         }
     },
@@ -91,10 +91,11 @@ Page({
     isSign: function () {
         let that = this
         let url = app.globalData.backend
+        console.log(that.data.checkInId)
         wx.request({
             url: url + '/api/checkin/isSign', //这里填写你的接口路径
             method: 'get',
-            header: { //这里写你借口返回的数据是什么类型，这里就体现了微信小程序的强大，直接给你解析数据，再也不用去寻找各种方法去解析json，xml等数据了
+            header: {
                 'Content-Type': 'application/json',
                 'Token': app.globalData.Token
             },
@@ -339,7 +340,7 @@ Page({
                 console.log(res.data)
                 if (res.data.code === 200) {
                     that.setData({
-                        sign:res.data.data
+                        sign: res.data.data
                     })
                 } else {
                     wx.showToast({

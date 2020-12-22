@@ -203,10 +203,10 @@ Page({
       },
       data: {},
       success: res => {
-        console.log(res.data.data)
-        if (res.data.data=== null) {
+        console.log(res.data)
+        if (res.data.code !== 200) {
           wx.showToast({
-            title: '用户照片未录入!请去个人界面录入照片!',
+            title: '用户照片获取失败!',
             icon: 'none'
           })
           setTimeout(function () {
@@ -216,9 +216,16 @@ Page({
           }, 1000)
         }
         else {
-          that.setData({
-            userphoto: res.data.data.photoId
-          })
+          if (res.data.data != null) {
+            that.setData({
+              userphoto: res.data.data.photoId
+            })
+          }else{
+            wx.showToast({
+              title: '用户照片未录入!请去个人界面录入照片!',
+              icon:'none'
+            })
+          }
         }
       },
       fail: function () {
