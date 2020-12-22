@@ -70,7 +70,7 @@ Page({
         try {
           let data = JSON.parse(res.result)
           console.log(JSON.parse(res.result))
-          if (new Date().getTime() - new Date(data.date).getTime() >= 30 * 1000) {
+          if (new Date().getTime() - new Date(data.date).getTime() <= app.globalData.QrCodeTime * 1000) {
             wx.navigateTo({
               url: '../getCheckIn/getCheckIn?role=stu&checkInId=' + data.checkInId,
             }),

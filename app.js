@@ -39,6 +39,7 @@ App({
     secretKey:"tuGXFGmzfgcnG9CejHIe9wa1DzcLimiE",
     threshold:0.957,
     compareThreshold:80,
-    Token:''
+    Token:'',
+    QrCodeTime:300
   }
 })

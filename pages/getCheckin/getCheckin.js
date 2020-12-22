@@ -19,7 +19,7 @@ Page({
             name: '签退'
         }
         ],
-        sign: {}
+        sign: {},
     },
     onLoad: function (e) {
         let that = this
