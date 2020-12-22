@@ -259,7 +259,6 @@ Page({
         console.log(res.data.data)
       },
       fail: res => {
-
       }
     })
   }

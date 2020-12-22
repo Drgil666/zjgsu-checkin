@@ -40,6 +40,6 @@ App({
     threshold:0.957,
     compareThreshold:80,
     Token:'',
-    QrCodeTime:300
+    QrCodeTime:60
   }
 })
