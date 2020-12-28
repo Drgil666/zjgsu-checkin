@@ -171,6 +171,7 @@ Page({
           })
           wx.setStorageSync('photo', res.data.data.id)
           if (that.data.type === "user") {
+            wx.removeStorageSync('photo')
             that.updatePhoto(res.data.data.id)
             wx.showToast({
               title: '人脸录入成功!',

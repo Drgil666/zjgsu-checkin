@@ -36,7 +36,7 @@ Page({
         that.isSign()
         let photo = wx.getStorageSync('photo')
         console.log(photo)
-        if (photo !== "" && photo !== null) {
+        if (photo !== null && photo.length !== 0) {
             that.createSignIn(photo)
         }
     },
