@@ -29,7 +29,6 @@ Page({
   getCheckSetList: function () {
     let that = this
     let url = app.globalData.backend
-    console.log(app.globalData.Token)
     wx.showLoading({ title: '获取数据中...' })
     wx.request({
       url: url + '/api/checkSet/stu/list', //这里填写你的接口路径
