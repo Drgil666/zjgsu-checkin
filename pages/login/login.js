@@ -32,16 +32,16 @@ Page({
     })
   },
   getopenid: function () {
+    let that=this
+    var url = getApp().globalData.backend
     wx.login({
       success: function (res) {
         console.log(res)
         if (res.code) {
+          // console.log(res.code)
           wx.request({
-            url: 'https://api.weixin.qq.com/sns/jscode2session',
+            url: url+'/openId',
             data: {
-              appid: 'wx3ed951293baeadc9',
-              secret: '0d75d409db2e94ce3bed3a611b23ac25',
-              grant_type: 'authorization_code',
               js_code: res.code
             },
             method: 'GET',
@@ -49,8 +49,10 @@ Page({
               'content-type': 'application/json'
             },
             success: function (openIdRes) {
-              console.info("登录成功返回的openId：" + openIdRes.data.openid);
-              wx.setStorageSync('openid', openIdRes.data.openid)
+              // console.info("登录成功返回的openId：" + openIdRes.data.openid);
+              that.setData({
+                openid:openIdRes.data.openid
+              })
             },
             fail: function (error) {
               wx.showToast({
@@ -66,6 +68,7 @@ Page({
     })
   },
   login: function () {
+    let that=this
     wx.showLoading({ title: '登录中...' })
     var url = getApp().globalData.backend
     wx.request({
@@ -75,7 +78,7 @@ Page({
         'Content-Type': 'application/json'
       },
       data: { //这里写你要请求的参数
-        username: wx.getStorageSync('openid')
+        username: that.data.openid
       },
       success: function (res) {
         if (res.data.code === 200) {

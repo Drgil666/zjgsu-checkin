@@ -20,7 +20,7 @@
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "setting": {
-    "urlCheck": false,
+    "urlCheck": true,
     "es6": true,
     "enhance": false,
     "postcss": true,
