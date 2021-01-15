@@ -34,12 +34,12 @@ App({
   },
   globalData: {
     userInfo: null,
-    backend: "http://10.21.234.24:8080",//后端链接
-    apiKey:"a2W3xpdwboiZZHN2NKIPqZXy",//人脸识别api的key
-    secretKey:"tuGXFGmzfgcnG9CejHIe9wa1DzcLimiE",//人脸识别api的secret
-    threshold:0.957,//活体识别阀值
-    compareThreshold:80,//人脸对比阀值
-    Token:'',//传输用Token
-    QrCodeTime:60//二维码有效时长(单位为秒)
+    backend: "http://47.111.2.22:8080",
+    apiKey:"a2W3xpdwboiZZHN2NKIPqZXy",
+    secretKey:"tuGXFGmzfgcnG9CejHIe9wa1DzcLimiE",
+    threshold:0.957,
+    compareThreshold:80,
+    Token:'',
+    QrCodeTime:60
   }
 })

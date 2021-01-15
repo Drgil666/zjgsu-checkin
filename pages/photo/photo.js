@@ -27,7 +27,7 @@ Page({
       success: res => {
         let tempImagePath = res.tempImagePath //res.tempImagePath照片文件在手机内的的临时路径
         let photobase64 = wx.getFileSystemManager().readFileSync(tempImagePath, "base64")
-        // console.log(photobase64)
+        console.log(photobase64)
         that.setData({
           photobase64: photobase64
         })
@@ -164,7 +164,7 @@ Page({
         }
       },
       success: res => {
-        console.log(res.data.data)
+        console.log(res.data)
         if (res.data.code === 200) {
           that.setData({
             photoId: res.data.data.id
