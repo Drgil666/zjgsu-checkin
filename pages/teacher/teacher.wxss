@@ -12,7 +12,7 @@
     display:flex;
     width: 42px;
     height: 42px;
-    bottom: 450px;
+    bottom: 40px;
     right: 10px;
 }
 .weui-panel__hd{

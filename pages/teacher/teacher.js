@@ -9,15 +9,15 @@ Page({
         let that = this
         that.getCheckSetList()
     },
-    /*createcheckin: function () {
-        wx.navigateTo({
+    createcheckin: function () {
+        wx.redirectTo({
             url: '../createCheckSet/createCheckSet',
         })
-    },*/
+    },
     getCheckSet: function (e) {
         var id = e.currentTarget.dataset.id
         console.log(id)
-        wx.navigateTo({
+        wx.redirectTo({
             url: '../getCheckSet/getCheckSet?role=teacher&checkSetId=' + id,
         })
     },
@@ -28,7 +28,7 @@ Page({
         })
     },
     myInfo: function () {
-        wx.navigateTo({
+        wx.redirectTo({
             url: '../my/my',
         })
     },

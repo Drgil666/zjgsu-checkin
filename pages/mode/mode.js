@@ -2,12 +2,12 @@ const app = getApp()
 Page({
   data: {},
   stu: function () {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../stu/stu',
     })
   },
   teacher: function () {
-    wx.switchTab({
+    wx.redirectTo({
       url: '../teacher/teacher',
     })
   }

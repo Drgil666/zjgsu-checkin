@@ -189,7 +189,7 @@ Page({
         let that = this
         if (new Date().getTime() <= new Date(that.data.checkIn.endTime).getTime() &&
             new Date().getTime() >= new Date(that.data.checkIn.startTime).getTime()) {
-            wx.navigateTo({
+            wx.redirectTo({
                 url: '../photo/photo?type=signin',
             })
         } else {
@@ -311,7 +311,7 @@ Page({
         })
     },
     showCheckIn: function () {
-        wx.navigateTo({
+        wx.redirectTo({
             url: '../ShowCheckIn/ShowCheckIn?checkId=' + this.data.checkInId,
         })
     },

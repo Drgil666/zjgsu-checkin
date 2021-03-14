@@ -1,6 +1,5 @@
 const app = getApp()
 Page({
-
   data: {
     userInfo: null,
   },
@@ -36,7 +35,7 @@ Page({
     var url = getApp().globalData.backend
     wx.login({
       success: function (res) {
-        console.log(res)
+        // console.log(res)
         if (res.code) {
           // console.log(res.code)
           wx.request({
@@ -56,7 +55,7 @@ Page({
             },
             fail: function (error) {
               wx.showToast({
-                title: '获取用户openId失败',
+                title: '获取用户openId失败!',
                 icon: 'none',
                 duration: 2000
               })
@@ -86,7 +85,7 @@ Page({
           getApp().globalData.Token = res.data.data
           // wx.setStorageSync('userid', res.data.data)
           wx.hideLoading()
-          wx.navigateTo({
+          wx.redirectTo({
             url: '../mode/mode',
           })
         } else {

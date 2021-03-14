@@ -109,7 +109,7 @@ Page({
                         wx.navigateBack({
                             delta: 0,
                         })
-                    }, 1000)
+                    }, 500)
                 } else {
                     wx.showToast({
                         title: res.data.msg

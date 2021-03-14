@@ -1,7 +1,3 @@
-<!--index.wxml-->
-<!--<div>
-    <button bindtap="login">登陆</button>
-</div>-->
 <view class="container">
   <view class="userinfo">
     <block wx:if="{{userInfo===null}}">
@@ -11,6 +7,7 @@
       <image bindtap="login" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <!--将bindViewTap修改为login-->
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <text class="userinfo-nickname" style="color:#000">请点击头像登录</text>
     </block>
   </view>
 </view>

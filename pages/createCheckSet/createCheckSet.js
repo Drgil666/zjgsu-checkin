@@ -66,10 +66,10 @@ Page({
                         icon: 'success'
                     })
                     setTimeout(function () {
-                       wx.switchTab({
+                       wx.redirectTo({
                          url: '../teacher/teacher',
                        })
-                    }, 1500)
+                    }, 500)
                 },
                 fail: function () {
                     wx.hideLoading()

@@ -17,12 +17,12 @@ Page({
   getcheckin: function (e) {
     var id = e.currentTarget.dataset.id
     console.log(id)
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../getCheckSet/getCheckSet?role=stu&checkSetId=' + id,
     })
   },
   myInfo: function () {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../my/my',
     })
   },
@@ -70,7 +70,7 @@ Page({
           let data = JSON.parse(res.result)
           console.log(JSON.parse(res.result))
           if (new Date().getTime() - new Date(data.date).getTime() <= app.globalData.QrCodeTime * 1000) {
-            wx.navigateTo({
+            wx.redirectTo({
               url: '../getCheckIn/getCheckIn?role=stu&checkInId=' + data.checkInId,
             }),
               wx.showToast({
