@@ -21,11 +21,6 @@ Page({
       url: '../getCheckSet/getCheckSet?role=stu&checkSetId=' + id,
     })
   },
-  /*return: function (e) {
-    wx.redirectTo({
-      url: '../mode/mode',
-    })
-  },*/
   myInfo: function () {
     wx.navigateTo({
       url: '../my/my',
@@ -37,11 +32,11 @@ Page({
     console.log(app.globalData.Token)
     wx.showLoading({ title: '获取数据中...' })
     wx.request({
-      url: url + '/api/checkSet/findByUserId', //这里填写你的接口路径
+      url: url + '/api/checkSet/stu/list', //这里填写你的接口路径
       method: 'GET',
       header: { //这里写你借口返回的数据是什么类型，这里就体现了微信小程序的强大，直接给你解析数据，再也不用去寻找各种方法去解析json，xml等数据了
         'Content-Type': 'application/json;charset=utf-8',
-        'Token':app.globalData.Token
+        'Token': app.globalData.Token
       },
       data: { //这里写你要请求的参数
       },
@@ -50,7 +45,7 @@ Page({
         console.log(res.data)
         if (res.data.code == 200) {
           that.setData({
-            checkSetlist: res.data.data
+            checkSetlist: res.data.data.data
           })
         }
         else {
@@ -75,14 +70,24 @@ Page({
         try {
           let data = JSON.parse(res.result)
           console.log(JSON.parse(res.result))
-          wx.navigateTo({
-            url: '../getCheckIn/getCheckIn?role=stu&checkInId=' + data.checkInId,
-          })
-          wx.showToast({
-            title: '扫描成功!',
-            icon: 'success',
-            duration: 2000
-          })
+          if (new Date().getTime() - new Date(data.date).getTime() <= app.globalData.QrCodeTime * 1000) {
+            wx.navigateTo({
+              url: '../getCheckIn/getCheckIn?role=stu&checkInId=' + data.checkInId,
+            }),
+              wx.showToast({
+                title: '扫描成功!',
+                icon: 'success',
+                duration: 2000
+              })
+          }
+          else {
+            wx.showToast({
+              title: '该二维码已过期!',
+              icon: 'none',
+              duration: 2000
+            })
+          }
+
         }
         catch (err) {
           wx.showToast({

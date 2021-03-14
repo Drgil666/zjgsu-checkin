@@ -23,11 +23,11 @@ Page({
     let that = this
     this.data.cameraContext = wx.createCameraContext()
     this.data.cameraContext.takePhoto({
-      quality: "high", //高质量的图片
+      quality: "low", //高质量的图片
       success: res => {
         let tempImagePath = res.tempImagePath //res.tempImagePath照片文件在手机内的的临时路径
         let photobase64 = wx.getFileSystemManager().readFileSync(tempImagePath, "base64")
-        // console.log(photobase64)
+        console.log(photobase64)
         that.setData({
           photobase64: photobase64
         })
@@ -147,7 +147,6 @@ Page({
     })
   },
   createPhoto: function (photobase64) {
-    console.log("createphoto")
     let url = app.globalData.backend
     let that = this
     wx.request({
@@ -165,22 +164,31 @@ Page({
         }
       },
       success: res => {
-        console.log(res.data.data)
-        that.setData({
-          photoId: res.data.data.id
-        })
-        wx.setStorageSync('photo', photobase64)
-        if (that.data.type === "user") {
+        console.log(res.data)
+        if (res.data.code === 200) {
+          that.setData({
+            photoId: res.data.data.id
+          })
+          wx.setStorageSync('photo', res.data.data.id)
+          if (that.data.type === "user") {
+            wx.removeStorageSync('photo')
+            that.updatePhoto(res.data.data.id)
+            wx.showToast({
+              title: '人脸录入成功!',
+              icon: 'success'
+            })
+          }
+          setTimeout(function () {
+            wx.navigateBack({
+              delta: 0,
+            })
+          }, 1000)
+        }else{
           wx.showToast({
-            title: '人脸录入成功!',
+            title: '照片创建失败!',
             icon: 'success'
           })
         }
-        setTimeout(function () {
-          wx.navigateBack({
-            delta: 0,
-          })
-        }, 1000)
       },
       fail: function () {
         wx.hideLoading()
@@ -191,7 +199,7 @@ Page({
       }
     })
   },
-  getPhoto: function () {
+  getPhoto: function (photobase64) {
     let url = app.globalData.backend
     let that = this
     wx.request({
@@ -203,10 +211,10 @@ Page({
       },
       data: {},
       success: res => {
-        console.log(res.data.data)
-        if (res.data.data=== null) {
+        console.log(res.data)
+        if (res.data.code !== 200) {
           wx.showToast({
-            title: '用户照片未录入!请去个人界面录入照片!',
+            title: '用户照片获取失败!',
             icon: 'none'
           })
           setTimeout(function () {
@@ -216,9 +224,16 @@ Page({
           }, 1000)
         }
         else {
-          that.setData({
-            userphoto: res.data.data.photoId
-          })
+          if (res.data.data != null) {
+            that.setData({
+              userphoto: res.data.data.photoId
+            })
+          } else {
+            wx.showToast({
+              title: '用户照片未录入!请去个人界面录入照片!',
+              icon: 'none'
+            })
+          }
         }
       },
       fail: function () {
@@ -230,4 +245,22 @@ Page({
       }
     })
   },
+  updatePhoto: function (photoId) {
+    let url = app.globalData.backend
+    let that = this
+    wx.request({
+      url: url + '/api/user/update/photo',
+      method: 'post',
+      header: { //这里写你借口返回的数据是什么类型，这里就体现了微信小程序的强大，直接给你解析数据，再也不用去寻找各种方法去解析json，xml等数据了
+        'Content-Type': 'application/json;charset=utf-8',
+        'Token': app.globalData.Token
+      },
+      data:photoId,
+      success: res => {
+        console.log(res.data.data)
+      },
+      fail: res => {
+      }
+    })
+  }
 })

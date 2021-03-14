@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "签到实况"
+  "navigationBarTitleText": "签到实况",
+  "enablePullDownRefresh": true
 }

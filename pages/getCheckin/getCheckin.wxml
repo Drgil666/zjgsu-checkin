@@ -16,7 +16,7 @@
   <switch bindchange="visibleChange" checked="{{checkIn.visible}}" />
 </div>
 <block wx:if="{{role==='teacher'}}">
-  <block wx:if="{{buttonVisible==true}}">
+  <block wx:if="{{buttonVisible===true}}">
     <button class="weui-btn weui-btn_primary" bindtap="createQrCode">生成二维码</button>
   </block>
   <block wx:else>
@@ -36,5 +36,16 @@
   <button class="weui-btn weui-btn_primary" bindtap="signIn">参与签到</button>
 </block>
 <block wx:else>
-  <p>您已完成签到</p>
+  <view style="font-size:20px;font-style:bold;text-align:center">您已完成签到</view>
+  <block wx:if="{{signButton===false}}">
+    <button class="weui-btn weui-btn_primary" bindtap="signButton">查看签到情况</button>
+  </block>
+  <block wx:else>
+    <div class="weui-cell weui-cell_access">
+      <label class="weui-label" style="font-size:20px;font-style:bold;">签到时间:</label>
+      <div class="weui-cell__hd" style="font-size:15px;font-style:bold;">
+        <view>{{sign.signTime}}</view>
+      </div>
+    </div>
+  </block>
 </block>

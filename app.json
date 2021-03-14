@@ -1,8 +1,11 @@
 {
   "pages": [
+    
+    
     "pages/login/login",
     "pages/mode/mode",
     "pages/ShowCheckIn/ShowCheckIn",
+
     "pages/my/my",
     "pages/photo/photo",
     "pages/stu/stu",
@@ -10,7 +13,8 @@
     "pages/createCheckSet/createCheckSet",
     "pages/getCheckSet/getCheckSet",
     "pages/getCheckIn/getCheckIn",
-    "pages/createCheckIn/createCheckIn"
+    "pages/createCheckIn/createCheckIn",
+    "pages/getSign/getSign"
   ],
   "window": {
     "backgroundTextStyle": "light",
