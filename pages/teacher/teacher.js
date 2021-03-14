@@ -22,7 +22,7 @@ Page({
         })
     },
     return: function () {
-        console.log("return")
+        // console.log("return")
         wx.redirectTo({
             url: '../mode/mode?',
         })
@@ -30,11 +30,6 @@ Page({
     myInfo: function () {
         wx.redirectTo({
             url: '../my/my',
-        })
-    },
-    return: function () {
-        wx.redirectTo({
-            url: '../mode/mode?id=1',
         })
     },
     getCheckSetList: function () {
@@ -72,5 +67,43 @@ Page({
                 })
             }
         })
-    }
+    },
+    onPullDownRefresh: function () {
+    let that = this
+    wx.showNavigationBarLoading()  //在标题栏中显示加载
+    this.updateBlogs()  //重新加载数据,模拟加载  1秒
+    setTimeout(function () {// 完成
+      that.getCheckSetList()
+      wx.hideNavigationBarLoading() //完成停止加载
+      wx.stopPullDownRefresh() //停止下拉刷新
+    }, 1000);
+  },
+  updateBlogs: function () {
+    var that = this
+    wx.request({
+      //url: common.baseUrl + 'blog_rss.php',//common is not defind
+      data: {
+      },
+      header: {
+        'Content-Type': 'application/json;charset=utf-8',
+        'Token': app.globalData.Token
+      },
+      success: function (res) {
+        var feeds = feed.getBlogs(res.data);
+        wx.setStorage({
+          key: "blog_feeds",
+          data: feeds
+        })
+        that.setData({
+          feeds: feeds
+        })
+      }
+    })
+  },
+  getSignIn: function(e){
+    console.log(e.currentTarget.dataset.id)
+    wx.redirectTo({
+      url: '../getSign/getSign?id='+e.currentTarget.dataset.id,
+    })
+  },
 })

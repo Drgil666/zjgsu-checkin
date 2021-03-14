@@ -1,5 +1,6 @@
 {
   "navigationBarTitleText": "教师界面",
   "usingComponents": {},
-  "component": true
+
+  "enablePullDownRefresh":true
 }

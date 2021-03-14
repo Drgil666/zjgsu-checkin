@@ -23,6 +23,7 @@ Page({
     },
     onLoad: function (e) {
         let that = this
+        that.isSign()
         console.log(e.checkInId)
         console.log(e.role)
         that.setData({
@@ -184,7 +185,7 @@ Page({
     onUnload: function () {
         let that = this
         clearInterval(that.interval)
-    },
+    },//页面退出时清空页面
     signIn: function () {
         let that = this
         if (new Date().getTime() <= new Date(that.data.checkIn.endTime).getTime() &&
@@ -212,6 +213,7 @@ Page({
                 }
             }
         })
+        that.getSign()
     },
     deleteCheckIn: function () {
         wx.showLoading({
