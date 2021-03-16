@@ -39,13 +39,13 @@ Page({
     getCheckIn: function (e) {
         let that = this
         let id = e.currentTarget.dataset.id
-        wx.redirectTo({
+        wx.navigateTo({
             url: '../getCheckIn/getCheckIn?checkInId=' + id + '&role=' + that.data.role
         })
     },
     createCheckIn: function () {
         let that = this
-        wx.redirectTo({
+        wx.navigateTo({
             url: '../createCheckIn/createCheckIn?checkSetId=' + that.data.checkSetId,
         })
     },

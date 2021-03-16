@@ -22,7 +22,7 @@ Page({
   onLoad: function () {
     },
   takephoto: function () {
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../photo/photo?type=user',
     })
   },

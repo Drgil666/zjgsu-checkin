@@ -10,30 +10,30 @@ Page({
         that.getCheckSetList()
     },
     createcheckin: function () {
-        wx.redirectTo({
+        wx.navigateTo({
             url: '../createCheckSet/createCheckSet',
         })
     },
     getCheckSet: function (e) {
         var id = e.currentTarget.dataset.id
         console.log(id)
-        wx.redirectTo({
+        wx.navigateTo({
             url: '../getCheckSet/getCheckSet?role=teacher&checkSetId=' + id,
         })
     },
     return: function () {
         console.log("return")
-        wx.redirectTo({
+        wx.navigateTo({
             url: '../mode/mode?',
         })
     },
     myInfo: function () {
-        wx.redirectTo({
+        wx.navigateTo({
             url: '../my/my',
         })
     },
     return: function () {
-        wx.redirectTo({
+        wx.navigateTo({
             url: '../mode/mode?id=1',
         })
     },

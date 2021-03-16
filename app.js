@@ -33,8 +33,8 @@ App({
   },
   globalData: {
     userInfo: null,
-    backend: "https://zjgsucheckin.top:8443",
-    // backend: "http://localhost:8080",
+    // backend: "https://zjgsucheckin.top:8443",
+    backend: "http://localhost:8080",
     apiKey:"a2W3xpdwboiZZHN2NKIPqZXy",
     secretKey:"tuGXFGmzfgcnG9CejHIe9wa1DzcLimiE",
     threshold:0.957,

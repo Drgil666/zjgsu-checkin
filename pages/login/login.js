@@ -3,11 +3,12 @@ Page({
   data: {
     userInfo: null,
   },
-  onLoad: function () {
-  },
+  onLoad: function () {},
   onShow: function () {
     var that = this
-    wx.showLoading({ title: '获取用户数据中...' })
+    wx.showLoading({
+      title: '获取用户数据中...'
+    })
     that.getuserinfo()
     that.getopenid()
     wx.hideLoading()
@@ -31,7 +32,7 @@ Page({
     })
   },
   getopenid: function () {
-    let that=this
+    let that = this
     var url = getApp().globalData.backend
     wx.login({
       success: function (res) {
@@ -39,7 +40,7 @@ Page({
         if (res.code) {
           // console.log(res.code)
           wx.request({
-            url: url+'/openId',
+            url: url + '/openId',
             data: {
               js_code: res.code
             },
@@ -50,7 +51,7 @@ Page({
             success: function (openIdRes) {
               // console.info("登录成功返回的openId：" + openIdRes.data.openid);
               that.setData({
-                openid:openIdRes.data.openid
+                openid: openIdRes.data.openid
               })
             },
             fail: function (error) {
@@ -67,8 +68,10 @@ Page({
     })
   },
   login: function () {
-    let that=this
-    wx.showLoading({ title: '登录中...' })
+    let that = this
+    wx.showLoading({
+      title: '登录中...'
+    })
     var url = getApp().globalData.backend
     wx.request({
       url: url + '/login', //这里填写你的接口路径
@@ -77,7 +80,8 @@ Page({
         'Content-Type': 'application/json'
       },
       data: { //这里写你要请求的参数
-        username: that.data.openid
+        username: that.data.openid,
+        password: null
       },
       success: function (res) {
         if (res.data.code === 200) {
@@ -85,7 +89,7 @@ Page({
           getApp().globalData.Token = res.data.data
           // wx.setStorageSync('userid', res.data.data)
           wx.hideLoading()
-          wx.redirectTo({
+          wx.navigateTo({
             url: '../mode/mode',
           })
         } else {

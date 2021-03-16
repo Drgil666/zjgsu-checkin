@@ -88,7 +88,7 @@ Page({
   },
   getSignIn: function(e){
     console.log(e.currentTarget.dataset.id)
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../getSign/getSign?id='+e.currentTarget.dataset.id,
     })
   }
