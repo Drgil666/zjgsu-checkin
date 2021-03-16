@@ -35,7 +35,6 @@ App({
     userInfo: null,
     backend: "https://zjgsucheckin.top:8443",
     // backend: "http://localhost:8080",
-    //test-message
     apiKey:"a2W3xpdwboiZZHN2NKIPqZXy",
     secretKey:"tuGXFGmzfgcnG9CejHIe9wa1DzcLimiE",
     threshold:0.957,
