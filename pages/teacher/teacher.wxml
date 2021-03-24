@@ -15,7 +15,7 @@
     </div>
   </block>
   <div>
-    <image class="add_icon" src="../image/add-circle.png" bindtap="createcheckin"></image>
+    <image class="add_icon" src="../image/add-circle.png" bindtap="createcheckSet"></image>
   </div>
   <!-- <div>
     <image class="return_btn" src="../image/return.png" bindtap="return"></image>

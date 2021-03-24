@@ -31,7 +31,7 @@
   justify-content: center;
   align-items:center;
 }
-/*.return_btn
+.return_btn
 {
   position: fixed;
   display:flex;
@@ -39,7 +39,7 @@
   height: 42px;
   top: 10px;
   left: 10px;
-}*/
+}
 .myInfo
 {
   position: fixed;
@@ -55,6 +55,6 @@
   display:flex;
   width: 42px;
   height: 42px;
-  top: 10px;
-  left: 10px;
+  bottom: 80px;
+  right: 30px;
 }

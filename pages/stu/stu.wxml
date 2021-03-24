@@ -2,22 +2,8 @@
   <div class="weui-panel__hd" style="display:flex;">
     <view style="font-size:20px;">我参与的签到</view>
   </div>
-  <!-- <block wx:key="item" wx:for="{{items}}">
-    <div class="weui-panel__bd" bindtap="getcourse" data-id="{{item.id}}">
-      <a herf="" class="weui-media-box weui-media-box_appmsg">
-        <view class="weui-panel__bd" bindtap="getcourse" data-id="{{item.id}}">{{item.name}} {{item.introduction}}</view>
-        <div class="weui-media-box__hd">
-          <image class="weui-media-box__thumb" style="width:60px;height:60px" src="../index/test1.png"></image>
-        </div>
-        <div class="weui-media-box__bd">
-          <h4 class="weui-media-box__title">{{item.name}}</h4>
-          <p class="weui-media-box__desc">{{item.introduction}}</p>
-        </div>
-      </a>
-    </div>
-  </block> -->
   <block wx:key="item" wx:for="{{checkSetlist}}">
-    <div class="weui-panel__bd" bindtap="getcheckin" data-id="{{item.id}}">
+    <div class="weui-panel__bd" bindtap="getcheckSet" data-id="{{item.id}}">
       <a herf="" class="weui-media-box weui-media-box_appmsg">
         <view class="weui-panel__bd">{{item.nick}}</view>
         <div class="weui-media-box__bd">
@@ -40,9 +26,9 @@
   <div>
     <image class="scan" src="../image/scan.png" bindtap="scanCode"></image>
   </div>
-  <!--<div>
+  <div>
     <image class="return_btn" src="../image/return.png" bindtap="return"></image>
-  </div>-->
+  </div>
   <div>
     <image class="myInfo" src="../image/my.png" bindtap="myInfo"></image>
   </div>

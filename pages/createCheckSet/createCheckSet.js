@@ -66,8 +66,8 @@ Page({
                         icon: 'success'
                     })
                     setTimeout(function () {
-                       wx.navigateTo({
-                         url: '../teacher/teacher',
+                       wx.navigateBack({
+                         delta: 0,
                        })
                     }, 500)
                 },

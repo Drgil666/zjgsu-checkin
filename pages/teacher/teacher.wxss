@@ -12,8 +12,8 @@
     display:flex;
     width: 42px;
     height: 42px;
-    bottom: 40px;
-    right: 10px;
+    bottom: 80px;
+    right: 30px;
 }
 .weui-panel__hd{
         width: 700rpx;

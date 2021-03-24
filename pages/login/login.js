@@ -1,7 +1,9 @@
 const app = getApp()
 Page({
+
   data: {
     userInfo: null,
+    openid:null
   },
   onLoad: function () {},
   onShow: function () {
@@ -68,10 +70,14 @@ Page({
     })
   },
   login: function () {
-    let that = this
-    wx.showLoading({
-      title: '登录中...'
-    })
+    let that=this
+    wx.showLoading({ title: '登录中...' })
+    if(that.data.userInfo==null){
+    that.getuserinfo()
+  }
+    if(that.data.openId==null){
+    that.getopenid()
+  }
     var url = getApp().globalData.backend
     wx.request({
       url: url + '/login', //这里填写你的接口路径
